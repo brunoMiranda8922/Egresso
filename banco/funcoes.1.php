@@ -70,7 +70,7 @@ function isPesquisarAndFiltrarAlunosPorCurso()
 
 function isFiltrarAlunosPorAnoAndCurso()
 {
-    return  (((isset($_GET['pesquisar']) && empty($_GET['pesquisar'])) && isset($_GET['ano_id']) && isset($_GET['cursos_id'])));
+    return  (((isset($_GET['pesquisar']) && empty($_GET['pesquisar']) || !isset($GET['pesquisar'])) && isset($_GET['ano_id']) && isset($_GET['cursos_id'])));
 }
 
 function isPesquisarComTodosFiltros(){
@@ -298,7 +298,7 @@ function listarAlunosPorAnoandCurso($conexao)
     data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN
         cursos AS c ON f.cursos_id = c.id INNER JOIN ano ON f.ano_id = ano.id INNER JOIN
             semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-                WHERE f.cursos_id = '{$curso}' AND f.ano_id = '{$filtrar}' ORDER BY ano_formacao DESC";
+                WHERE f.ano_id = {$filtrar} AND f.cursos_id = {$curso} ORDER BY ano_formacao DESC";
     $resultado_aluno = mysqli_query($conexao, $query);
     
     $total_alunos = mysqli_num_rows($resultado_aluno);
@@ -549,7 +549,7 @@ function paginarlistarAlunosPorAnoandCurso($conexao)
     data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN
         cursos AS c ON f.cursos_id = c.id INNER JOIN ano ON f.ano_id = ano.id INNER JOIN
             semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-                WHERE (f.cursos_id = '{$curso}' AND f.ano_id = '{$filtrar}') ORDER BY ano_formacao DESC";
+                WHERE f.ano_id = {$filtrar} AND f.cursos_id = {$curso} ORDER BY ano_formacao DESC";
     $resultado_aluno = mysqli_query($conexao, $query);
     
     $total_alunos = mysqli_num_rows($resultado_aluno);
