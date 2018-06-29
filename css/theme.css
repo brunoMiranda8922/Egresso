@@ -1221,6 +1221,8 @@ section {
 @media (max-width: 991px) {
     .logo {
         text-align: center;
+        height: 70px;
+        
     }
 }
 
@@ -4240,7 +4242,7 @@ section {
 
 .table-earning thead th.text-right {
     padding-left: 15px;
-    padding-right: 65px;
+    padding-right: 75px;
 }
 
 .table-earning tbody td {

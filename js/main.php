@@ -1,32 +1,307 @@
+<?php require_once('banco/conexao.php');
+  $listaG = array();
+  #$lista1 = array();
+  
 
+  $i = 0;
+  $query = "SELECT a.ano_formacao AS anoG, COUNT(e.RA) AS alunosG FROM egressos AS e INNER JOIN
+                ano AS a ON e.ano_id = a.id WHERE cursos_id= 1   GROUP BY a.ano_formacao ";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $anosG = $row->anoG;
+      $alunosG = $row->alunosG;
+      
+      $listaG[] = ['anoG' => $anosG, 'totalAlunosG' => $alunosG];
+      
+  
+  }
+  
+  
+  #$lista1 = array();
+  
+//------------------------------------------------------------------------------------------------
+$listaE = array();
+  #$lista1 = array();
+  
+
+  $i = 0;
+  $query = "SELECT a.ano_formacao AS anoE, COUNT(e.RA) AS alunosE FROM egressos AS e INNER JOIN
+                ano AS a ON e.ano_id = a.id WHERE cursos_id= 2   GROUP BY a.ano_formacao ";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $anosE = $row->anoE;
+      $alunosE = $row->alunosE;
+      
+      $listaE[] = ['anoE' => $anosE, 'totalAlunosE' => $alunosE];
+      
+  
+  }
+
+//-------------------------------------------------------------------------------------------------
+
+$listaC = array();
+  #$lista1 = array();
+  
+
+  $i = 0;
+  $query = "SELECT a.ano_formacao AS anoC, COUNT(e.RA) AS alunosC FROM egressos AS e INNER JOIN
+                ano AS a ON e.ano_id = a.id WHERE cursos_id= 3   GROUP BY a.ano_formacao ";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $anosC = $row->anoC;
+      $alunosC = $row->alunosC;
+      
+      $listaC[] = ['anoC' => $anosC, 'totalAlunosC' => $alunosC];
+      
+  
+  }
+
+//-----------------------------------------------------------------------------------------------------
+
+
+$listaT = array();
+  #$lista1 = array();
+  
+
+  $i = 0;
+  $query = "SELECT a.ano_formacao AS anoT, COUNT(e.RA) AS alunosT FROM egressos AS e INNER JOIN
+                ano AS a ON e.ano_id = a.id WHERE cursos_id= 4   GROUP BY a.ano_formacao ";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $anosT = $row->anoT;
+      $alunosT = $row->alunosT;
+      
+      $listaT[] = ['anoT' => $anosT, 'totalAlunosT' => $alunosT];
+      
+  
+  }
+//------------------------------------------------------------------------------------------------------
+// Média de PR
+$listaMedia = array();
+ 
+  
+
+  $i = 0;
+  $query = "SELECT a.ano_formacao AS anoM, AVG(e.PR) AS PR FROM egressos AS e INNER JOIN ano AS a ON e.ano_id = a.id   GROUP BY a.ano_formacao";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $anoMedia = $row->anoM;
+      $media = $row->PR;
+      
+      $listaMedia[] = ['anoMedia' => $anoMedia, 'PR' => $media];
+      
+  
+  }
+//--------------------------------------------------------------------------------------------------------------------------------------------------4
+//Cidades 
+$listaCidade = array();
+ 
+  
+
+  $i = 0;
+  $query = "SELECT a.nome AS cidade, COUNT(e.RA) AS RA FROM egressos AS e INNER JOIN cidade AS a ON e.cidade_id = a.id   GROUP BY a.nome";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+  
+      $cidade = $row->cidade;
+      $quantidadeRA = $row->RA;
+      
+      $listaCidade[] = ['cidades' => $cidade, 'RA' => $quantidadeRA];
+      
+  
+  }
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Trabalha 
+function trabalhaSim($conexao) 
+{
+$query = "SELECT DISTINCT COUNT(f.trabalha) as S FROM formulario_aluno AS f WHERE f.trabalha = 1 GROUP BY f.trabalha";
+$resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $sim = $row->S;
+
+  }
+return $sim;
+}
+
+function trabalhaNao($conexao) 
+{
+  $query = "SELECT DISTINCT COUNT(f.trabalha) as N FROM formulario_aluno AS f WHERE f.trabalha = 0 GROUP BY f.trabalha";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $nao = $row->N;
+  
+  }
+  return $nao;
+}
+
+function recomendariaSim($conexao) 
+{
+  $query = "SELECT COUNT(f.recomendaria) as recomendaria FROM formulario_aluno AS f WHERE f.recomendaria = 3 GROUP BY f.recomendaria";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $recomendariaSim = $row->recomendaria;
+  
+  }
+  return $recomendariaSim;
+}
+
+function recomendariaNao($conexao) 
+{
+  $query = "SELECT COUNT(f.recomendaria) as recomendaria FROM formulario_aluno AS f WHERE f.recomendaria = 1 GROUP BY f.recomendaria";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $recomendariaNao = $row->recomendaria;
+  
+  }
+  return $recomendariaNao;
+}
+function recomendariaTalvez($conexao) 
+{
+  $query = "SELECT COUNT(f.recomendaria) as recomendaria FROM formulario_aluno AS f WHERE f.recomendaria = 2 GROUP BY f.recomendaria";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $recomendariaTalvez = $row->recomendaria;
+  
+  }
+  return $recomendariaTalvez;
+}
+
+function sexoM($conexao) 
+{
+  $query = "SELECT COUNT(f.sexo) as sexo FROM formulario_aluno AS f WHERE f.sexo = 'M' GROUP BY f.sexo";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $sexoM = $row->sexo;
+  
+  }
+  return $sexoM;
+}
+
+function sexoF($conexao) 
+{
+  $query = "SELECT COUNT(f.sexo) as sexo FROM formulario_aluno AS f WHERE f.sexo = 'F' GROUP BY f.sexo";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $sexoF = $row->sexo;
+  
+  }
+  return $sexoF;
+}
+
+function estagioS($conexao) 
+{
+  $query = "SELECT COUNT(f.estagio) as estagio FROM formulario_aluno AS f WHERE f.estagio = 1 GROUP BY f.estagio";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $estagio = $row->estagio;
+  
+  }
+  return $estagio;
+}
+function estagioN($conexao) 
+{
+  $query = "SELECT COUNT(f.estagio) as estagio FROM formulario_aluno AS f WHERE f.estagio = 0 GROUP BY f.estagio";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $estagio = $row->estagio;
+  
+  }
+  return $estagio;
+}
+
+function professoresR($conexao) 
+{
+  $query = "SELECT COUNT(f.professores) as professores FROM formulario_aluno AS f WHERE f.professores = 1 GROUP BY f.professores";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $professores = $row->professores;
+  
+  }
+  return $professores;
+} 
+function professoresRE($conexao) 
+{
+  $query = "SELECT COUNT(f.professores) as professores FROM formulario_aluno AS f WHERE f.professores = 2 GROUP BY f.professores";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $professores = $row->professores;
+  
+  }
+  return $professores;
+}
+function professoresB($conexao) 
+{
+  $query = "SELECT COUNT(f.professores) as professores FROM formulario_aluno AS f WHERE f.professores = 3 GROUP BY f.professores";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $professores = $row->professores;
+  
+  }
+  return $professores;
+}
+function professoresI($conexao) 
+{
+  $query = "SELECT COUNT(f.professores) as professores FROM formulario_aluno AS f WHERE f.professores = 4 GROUP BY f.professores";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $professores = $row->professores;
+  
+  }
+  return $professores;
+}
+function professoresO($conexao) 
+{
+  $query = "SELECT COUNT(f.professores) as professores FROM formulario_aluno AS f WHERE f.professores = 5 GROUP BY f.professores";
+  $resultado = mysqli_query($conexao,$query);
+  while($row = mysqli_fetch_object($resultado)){
+    $professores = $row->professores;
+  
+  }
+  return $professores;
+}
+?>
+
+<script type="text/javascript"> 
 (function ($) {
   // USE STRICT
   "use strict";
-
+  
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
     if (ctx) {
       ctx.height = 130;
       var myChart = new Chart(ctx, {
+        <?php 
+          $quantidade_anos = count($listaE) -1;
+          $alunosE = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          labels: [<?php echo $listaE[0]['anoE'] ?>, <?php echo $listaE[1]['anoE'] ?>, <?php echo $listaE[2]['anoE'] ?>, <?php echo $listaE[3]['anoE'] ?>],
           type: 'line',
           datasets: [{
-            data: [78, 81, 80, 45, 34, 12, 40],
-            label: 'Dataset',
+            data: [<?php echo $listaE[0]['totalAlunosE'] ?>, <?php echo $listaE[1]['totalAlunosE'] ?>, <?php echo $listaE[2]['totalAlunosE'] ?>, <?php echo $listaE[3]['totalAlunosE'] ?>],
+            label: 'Formados',
             backgroundColor: 'rgba(255,255,255,.1)',
             borderColor: 'rgba(255,255,255,.55)',
           },]
         },
+      <?php } ?>
         options: {
           maintainAspectRatio: true,
           legend: {
             display: false
           },
-          layout: {
-            padding: {
+          padding: {
+            layout: {
               left: 0,
               right: 0,
               top: 0,
@@ -75,17 +350,24 @@
     if (ctx) {
       ctx.height = 130;
       var myChart = new Chart(ctx, {
+        <?php 
+              $quantidade_anos = count($listaC) -1;
+              $alunosC = $i;
+              for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          labels: [<?php echo $listaC[0]['anoC'] ?>, <?php echo $listaC[1]['anoC'] ?>, <?php echo $listaC[2]['anoC'] ?>, <?php echo $listaC[3]['anoC'] ?>],
           type: 'line',
           datasets: [{
-            data: [1, 18, 9, 17, 34, 22],
-            label: 'Dataset',
+            data: [<?php echo $listaC[0]['totalAlunosC'] ?>, <?php echo $listaC[1]['totalAlunosC'] ?>, <?php echo $listaC[2]['totalAlunosC'] ?>, <?php echo $listaC[3]['totalAlunosC'] ?>],
+            label: 'Formados',
             backgroundColor: 'transparent',
             borderColor: 'rgba(255,255,255,.55)',
           },]
         },
+        <?php } ?>
         options: {
 
           maintainAspectRatio: false,
@@ -142,21 +424,36 @@
 
 
     //WidgetChart 3
+
+
     var ctx = document.getElementById("widgetChart3");
     if (ctx) {
       ctx.height = 130;
       var myChart = new Chart(ctx, {
+        
+        <?php 
+              $quantidade_anos = count($listaG) -1;
+              $alunosG = $i;
+              for ($i = 0; $i < $quantidade_anos; $i++){
+
+              ?>
         type: 'line',
-        data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        data: { 
+          labels: ['<?php echo $listaG[0]['anoG'] ?>', '<?php echo $listaG[1]['anoG'] ?>', '<?php echo $listaG[2]['anoG'] ?>', '<?php echo $listaG[3]['anoG'] ?>'],
           type: 'line',
+          
           datasets: [{
-            data: [65, 59, 84, 84, 51, 55],
-            label: 'Dataset',
+            
+            data: [<?php echo $listaG[0]['totalAlunosG'] ?>, <?php echo $listaG[1]['totalAlunosG'] ?>, <?php echo $listaG[2]['totalAlunosG'] ?>, <?php echo $listaG[3]['totalAlunosG'] ?>],  
+            
+            label: 'Formados',
             backgroundColor: 'transparent',
             borderColor: 'rgba(255,255,255,.55)',
+            
           },]
+          
         },
+        <?php } ?>
         options: {
 
           maintainAspectRatio: false,
@@ -169,7 +466,7 @@
             titleFontSize: 12,
             titleFontColor: '#000',
             bodyFontColor: '#000',
-            backgroundColor: '#fff',
+            backgroundColor: '#FFF',
             titleFontFamily: 'Montserrat',
             bodyFontFamily: 'Montserrat',
             cornerRadius: 3,
@@ -189,7 +486,7 @@
             yAxes: [{
               display: false,
               ticks: {
-                display: false,
+                display: true,
               }
             }]
           },
@@ -208,40 +505,58 @@
           }
         }
       });
-    }
+    } 
 
 
     //WidgetChart 4
     var ctx = document.getElementById("widgetChart4");
     if (ctx) {
-      ctx.height = 115;
+      ctx.height = 130;
       var myChart = new Chart(ctx, {
-        type: 'bar',
+        <?php 
+              $quantidade_anos = count($listaT) -1;
+              $alunosT = $i;
+              for ($i = 0; $i < $quantidade_anos; $i++){
+
+              ?>
+        type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          
+          labels: ['<?php echo $listaT[0]['anoT'] ?>', '<?php echo $listaT[1]['anoT'] ?>', '<?php echo $listaT[2]['anoT'] ?>', '<?php echo $listaT[3]['anoT'] ?>'],
+          
           datasets: [
             {
-              label: "My First dataset",
-              data: [78, 81, 80, 65, 58, 75, 60, 75, 65, 60, 60, 75],
+              label: "Formados",
+              data: [<?php echo $listaT[0]['totalAlunosT'] ?>, <?php echo $listaT[1]['totalAlunosT'] ?>, <?php echo $listaT[2]['totalAlunosT'] ?>, <?php echo $listaT[3]['totalAlunosT'] ?>],
               borderColor: "transparent",
-              borderWidth: "0",
-              backgroundColor: "rgba(255,255,255,.3)"
+              borderWidth: "5",
+              backgroundColor: "rgba(255,255,255,.3)",
             }
           ]
+          
         },
+
+        <?php } ?> 
+
         options: {
-          maintainAspectRatio: true,
+          maintainAspectRatio: false,
           legend: {
-            display: false
+            display: false,
           },
           scales: {
             xAxes: [{
-              display: false,
-              categoryPercentage: 1,
-              barPercentage: 0.65
+              display: true,
+              categoryPercentage: false,
+              barPercentage: true
             }],
             yAxes: [{
-              display: false
+              display: false,
+                ticks: {
+                beginAtZero: false,
+                fontFamily: "Poppins"
+              }
+            
+
             }]
           }
         }
@@ -249,99 +564,20 @@
     }
 
     // Recent Report
-    const brandProduct = 'rgba(0,181,233,0.8)'
-    const brandService = 'rgba(0,173,95,0.8)'
-
-    var elements = 10
-    var data1 = [52, 60, 55, 50, 65, 80, 57, 70, 105, 115]
-    var data2 = [102, 70, 80, 100, 56, 53, 80, 75, 65, 90]
-
-    var ctx = document.getElementById("recent-rep-chart");
-    if (ctx) {
-      ctx.height = 250;
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', ''],
-          datasets: [
-            {
-              label: 'My First dataset',
-              backgroundColor: brandService,
-              borderColor: 'transparent',
-              pointHoverBackgroundColor: '#fff',
-              borderWidth: 0,
-              data: data1
-
-            },
-            {
-              label: 'My Second dataset',
-              backgroundColor: brandProduct,
-              borderColor: 'transparent',
-              pointHoverBackgroundColor: '#fff',
-              borderWidth: 0,
-              data: data2
-
-            }
-          ]
-        },
-        options: {
-          maintainAspectRatio: true,
-          legend: {
-            display: false
-          },
-          responsive: true,
-          scales: {
-            xAxes: [{
-              gridLines: {
-                drawOnChartArea: true,
-                color: '#f2f2f2'
-              },
-              ticks: {
-                fontFamily: "Poppins",
-                fontSize: 12
-              }
-            }],
-            yAxes: [{
-              ticks: {
-                beginAtZero: true,
-                maxTicksLimit: 5,
-                stepSize: 50,
-                max: 150,
-                fontFamily: "Poppins",
-                fontSize: 12
-              },
-              gridLines: {
-                display: true,
-                color: '#f2f2f2'
-
-              }
-            }]
-          },
-          elements: {
-            point: {
-              radius: 0,
-              hitRadius: 10,
-              hoverRadius: 4,
-              hoverBorderWidth: 3
-            }
-          }
-
-
-        }
-      });
-    }
-
-    // Percent Chart
     var ctx = document.getElementById("percent-chart");
     if (ctx) {
       ctx.height = 280;
       var myChart = new Chart(ctx, {
+        <?php $yes = trabalhaSim($conexao);
+              $nao = trabalhaNao($conexao);
+        ?>
+       
         type: 'doughnut',
         data: {
           datasets: [
             {
-              label: "My First dataset",
-              data: [60, 40],
+              label: "Trabalham",
+              data: [<?= $yes ?>, <?= $nao ?>],
               backgroundColor: [
                 '#00b5e9',
                 '#fa4251'
@@ -360,12 +596,13 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Sim',
+            'Não'
           ]
         },
+      
         options: {
-          maintainAspectRatio: false,
+          maintainAspectRatio: true,
           responsive: true,
           cutoutPercentage: 55,
           animation: {
@@ -374,6 +611,71 @@
           },
           legend: {
             display: false
+          },
+          tooltips: {
+            titleFontFamily: "Poppins",
+            xPadding: 15,
+            yPadding: 10,
+            caretPadding: 0,
+            bodyFontSize: 16
+          }
+        }
+      });
+    }
+
+    // Percent Chart
+    var ctx = document.getElementById("percent-chart33");
+    if (ctx) {
+      ctx.height = 230;
+      var myChart = new Chart(ctx, {
+        <?php $simRecomendaria = recomendariaSim($conexao);
+              $naoRecomendaria = recomendariaNao($conexao);
+              $talvezRecomendaria = recomendariaTalvez($conexao);
+        ?>
+       
+        type: 'doughnut',
+        data: {
+          datasets: [
+            {
+              label: "Trabalham",
+              data: [<?= $simRecomendaria ?>, <?= $talvezRecomendaria ?>, <?= $naoRecomendaria ?>],
+              backgroundColor: [
+                '#90EE90',
+                '#87CEAF',
+                '#F08080',
+              ],
+              hoverBackgroundColor: [
+                '#90EE70',
+                '#87CEBF',
+                '#F08095'
+              ],
+              borderWidth: [
+                0, 0, 0
+              ],
+              hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent'
+              ]
+            }
+          ],
+          labels: [
+            'Sim',
+            'Talvez',
+            'Não'
+          ]
+        },
+      
+        options: {
+          maintainAspectRatio: true,
+          responsive: true,
+          cutoutPercentage: 55,
+          animation: {
+            animateScale: true,
+            animateRotate: true
+          },
+          legend: {
+            display: true
           },
           tooltips: {
             titleFontFamily: "Poppins",
@@ -584,7 +886,7 @@
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          labels: ['January',  'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
           datasets: [
             {
               label: "My First dataset",
@@ -689,16 +991,23 @@
     //Sales chart
     var ctx = document.getElementById("sales-chart");
     if (ctx) {
-      ctx.height = 150;
+      ctx.height = 200;
       var myChart = new Chart(ctx, {
-        type: 'line',
+        
+        type: 'bar',
         data: {
-          labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
-          type: 'line',
+          labels: ["2015", "2016", "2017", "2018"],
+          type: 'bar',
           defaultFontFamily: 'Poppins',
           datasets: [{
-            label: "Foods",
-            data: [0, 30, 10, 120, 50, 63, 10],
+            <?php 
+          $quantidade_anos = count($listaT) -1;
+          $alunosT = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
+            label: "Transporte",
+            data: [<?php echo $listaT[0]['totalAlunosT'] ?>, <?php echo $listaT[1]['totalAlunosT'] ?>, <?php echo $listaT[2]['totalAlunosT'] ?>, <?php echo $listaT[3]['totalAlunosT'] ?>],
             backgroundColor: 'transparent',
             borderColor: 'rgba(220,53,69,0.75)',
             borderWidth: 3,
@@ -706,9 +1015,18 @@
             pointRadius: 5,
             pointBorderColor: 'transparent',
             pointBackgroundColor: 'rgba(220,53,69,0.75)',
-          }, {
-            label: "Electronics",
-            data: [0, 50, 40, 80, 40, 79, 120],
+          <?php } ?>
+          }, 
+         
+          {
+            <?php 
+          $quantidade_anos = count($listaE) -1;
+          $alunosE = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
+            label: "Eventos",
+            data: [<?php echo $listaE[0]['totalAlunosE'] ?>, <?php echo $listaE[1]['totalAlunosE'] ?>, <?php echo $listaE[2]['totalAlunosE'] ?>, <?php echo $listaE[3]['totalAlunosE'] ?>],
             backgroundColor: 'transparent',
             borderColor: 'rgba(40,167,69,0.75)',
             borderWidth: 3,
@@ -716,8 +1034,48 @@
             pointRadius: 5,
             pointBorderColor: 'transparent',
             pointBackgroundColor: 'rgba(40,167,69,0.75)',
+            <?php } ?>
+          },
+        
+          {
+            <?php 
+          $quantidade_anos = count($listaC) -1;
+          $alunosC = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+          ?>
+            label: "Comex",
+            data: [<?php echo $listaC[0]['totalAlunosC'] ?>, <?php echo $listaC[1]['totalAlunosC'] ?>, <?php echo $listaC[2]['totalAlunosC'] ?>, <?php echo $listaC[3]['totalAlunosC'] ?>],
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(222,167,69,0.75)',
+            borderWidth: 3,
+            pointStyle: 'circle',
+            pointRadius: 5,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'rgba(222,167,69,0.75)',
+          <?php } ?>
+          },
+          {
+            <?php 
+          $quantidade_anos = count($listaG) -1;
+          $alunosG = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
+            label: "Gestao",
+            data: [<?php echo $listaG[0]['totalAlunosG'] ?>, <?php echo $listaG[1]['totalAlunosG'] ?>, <?php echo $listaG[2]['totalAlunosG'] ?>, <?php echo $listaG[3]['totalAlunosG'] ?>],
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(85,22,69,0.75)',
+            borderWidth: 3,
+            pointStyle: 'circle',
+            pointRadius: 5,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'rgba(85,22,69,0.75)',
+            <?php }?>  
           }]
+          
         },
+        
         options: {
           responsive: true,
           tooltips: {
@@ -732,7 +1090,7 @@
             intersect: false,
           },
           legend: {
-            display: false,
+            display: true,
             labels: {
               usePointStyle: true,
               fontFamily: 'Poppins',
@@ -742,12 +1100,13 @@
             xAxes: [{
               display: true,
               gridLines: {
-                display: false,
-                drawBorder: false
+                display: true,
+                drawBorder: true,
+                beginAtZero: true
               },
               scaleLabel: {
-                display: false,
-                labelString: 'Month'
+                display: true,
+                labelString: 'Anos'
               },
               ticks: {
                 fontFamily: "Poppins"
@@ -757,11 +1116,12 @@
               display: true,
               gridLines: {
                 display: false,
+                beginAtZero: true,
                 drawBorder: false
               },
               scaleLabel: {
                 display: true,
-                labelString: 'Value',
+                labelString: 'Quantidade',
                 fontFamily: "Poppins"
 
               },
@@ -772,7 +1132,7 @@
           },
           title: {
             display: false,
-            text: 'Normal Legend'
+            text: 'Alunos'
           }
         }
       });
@@ -788,16 +1148,26 @@
     //Team chart
     var ctx = document.getElementById("team-chart");
     if (ctx) {
-      ctx.height = 150;
+      ctx.height = 180;
       var myChart = new Chart(ctx, {
+        <?php 
+          $quantidade_anos = count($listaMedia) -1;
+          $media = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
         type: 'line',
         data: {
-          labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016"],
+          labels: [<?php echo $listaMedia[0]['anoMedia'] ?>, <?php echo $listaMedia[1]['anoMedia'] ?> , <?php echo $listaMedia[2]['anoMedia']?>, <?php echo $listaMedia[3]['anoMedia'] ?>],
+
           type: 'line',
           defaultFontFamily: 'Poppins',
+
           datasets: [{
-            data: [0, 7, 3, 5, 2, 10, 7],
-            label: "Expense",
+            
+                  
+            data: [<?php echo $listaMedia[0]['PR']?>, <?php echo $listaMedia[1]['PR']?>, <?php echo $listaMedia[2]['PR']?>, <?php echo $listaMedia[3]['PR']?> ],
+            label: "MÉDIA",
             backgroundColor: 'rgba(0,103,255,.15)',
             borderColor: 'rgba(0,103,255,0.5)',
             borderWidth: 3.5,
@@ -805,8 +1175,10 @@
             pointRadius: 5,
             pointBorderColor: 'transparent',
             pointBackgroundColor: 'rgba(0,103,255,0.5)',
+            
           },]
-        },
+        }, 
+        <?php } ?>  
         options: {
           responsive: true,
           tooltips: {
@@ -853,7 +1225,7 @@
               },
               scaleLabel: {
                 display: true,
-                labelString: 'Value',
+                labelString: 'Percentual de Rendimento',
                 fontFamily: "Poppins"
               },
               ticks: {
@@ -877,30 +1249,24 @@
     //bar chart
     var ctx = document.getElementById("barChart");
     if (ctx) {
-      ctx.height = 200;
+      ctx.height = 180;
       var myChart = new Chart(ctx, {
+        <?php $estagioS = estagioS($conexao);
+              $estagioN = estagioN($conexao);?>
         type: 'bar',
         defaultFontFamily: 'Poppins',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: ["Sim", "Não"],
           datasets: [
             {
-              label: "My First dataset",
-              data: [65, 59, 80, 81, 56, 55, 40],
+              label: "Estagio",
+              data: [<?= $estagioS ?>, <?= $estagioN ?>],
               borderColor: "rgba(0, 123, 255, 0.9)",
               borderWidth: "0",
               backgroundColor: "rgba(0, 123, 255, 0.5)",
               fontFamily: "Poppins"
             },
-            {
-              label: "My Second dataset",
-              data: [28, 48, 40, 19, 86, 27, 90],
-              borderColor: "rgba(0,0,0,0.09)",
-              borderWidth: "0",
-              backgroundColor: "rgba(0,0,0,0.07)",
-              fontFamily: "Poppins"
-            }
-          ]
+                      ]
         },
         options: {
           legend: {
@@ -936,29 +1302,32 @@
   try {
 
     //radar chart
-    var ctx = document.getElementById("radarChart");
+    var ctx = document.getElementById("pieChart1");
     if (ctx) {
       ctx.height = 200;
       var myChart = new Chart(ctx, {
-        type: 'radar',
+        type: 'line',
         data: {
-          labels: [["Eating", "Dinner"], ["Drinking", "Water"], "Sleeping", ["Designing", "Graphics"], "Coding", "Cycling", "Running"],
-          defaultFontFamily: 'Poppins',
-          datasets: [
-            {
-              label: "My First dataset",
-              data: [65, 59, 66, 45, 56, 55, 40],
-              borderColor: "rgba(0, 123, 255, 0.6)",
-              borderWidth: "1",
-              backgroundColor: "rgba(0, 123, 255, 0.4)"
-            },
-            {
-              label: "My Second dataset",
-              data: [28, 12, 40, 19, 63, 27, 87],
-              borderColor: "rgba(0, 123, 255, 0.7",
-              borderWidth: "1",
-              backgroundColor: "rgba(0, 123, 255, 0.5)"
-            }
+          datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 123, 255,0.5)",
+              "rgba(0,0,0,0.07)"
+            ],
+            hoverBackgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 123, 255,0.5)",
+              "rgba(0,0,0,0.07)"
+            ]
+
+          }],
+          labels: [
+            "Green",
+            "Green",
+            "Green"
           ]
         },
         options: {
@@ -969,15 +1338,12 @@
             }
 
           },
-          scale: {
-            ticks: {
-              beginAtZero: true,
-              fontFamily: "Poppins"
-            }
-          }
+          responsive: true
         }
       });
     }
+
+
 
   } catch (error) {
     console.log(error)
@@ -988,28 +1354,28 @@
     //line chart
     var ctx = document.getElementById("lineChart");
     if (ctx) {
-      ctx.height = 150;
+      ctx.height = 180;
       var myChart = new Chart(ctx, {
-        type: 'line',
+        <?php $ruim = professoresR($conexao);
+              $regular = professoresRE($conexao);
+              $bom = professoresB($conexao);
+              $ideal = professoresI($conexao);
+              $otimo = professoresO($conexao);  
+        ?>
+        type: 'bar',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: ["Ruim", "Regular", "Bom", "Ideal", "Ótimo"],
           defaultFontFamily: "Poppins",
           datasets: [
             {
-              label: "My First dataset",
-              borderColor: "rgba(0,0,0,.09)",
+              label: "Avaliação Professores",
+              borderColor: "rgba(10,10,100,0.9)",
               borderWidth: "1",
-              backgroundColor: "rgba(0,0,0,.07)",
-              data: [22, 44, 67, 43, 76, 45, 12]
+              backgroundColor: "rgba(0,0,10,0.7)",
+              
+              data: [<?= $ruim ?>,<?= $regular?>,<?= $bom?>,<?= $ideal ?>,<?= $otimo ?>]
             },
-            {
-              label: "My Second dataset",
-              borderColor: "rgba(0, 123, 255, 0.9)",
-              borderWidth: "1",
-              backgroundColor: "rgba(0, 123, 255, 0.5)",
-              pointHighlightStroke: "rgba(26,179,148,1)",
-              data: [16, 32, 18, 26, 42, 33, 44]
-            }
+            
           ]
         },
         options: {
@@ -1023,11 +1389,11 @@
           responsive: true,
           tooltips: {
             mode: 'index',
-            intersect: false
+            intersect: true
           },
           hover: {
             mode: 'nearest',
-            intersect: true
+            intersect: false
           },
           scales: {
             xAxes: [{
@@ -1059,33 +1425,46 @@
     //doughut chart
     var ctx = document.getElementById("doughutChart");
     if (ctx) {
-      ctx.height = 150;
+      ctx.height = 280;
       var myChart = new Chart(ctx, {
-        type: 'doughnut',
+        <?php 
+          $quantidade_anos = count($listaCidade) -1;
+          $quantidadeRA = $i;
+          for ($i = 0; $i < $quantidade_anos; $i++){
+
+        ?>
+        type: 'bar',
         data: {
           datasets: [{
-            data: [45, 25, 20, 10],
+            data: [<?php echo $listaCidade[0]['RA'] ?>,<?php echo $listaCidade[1]['RA'] ?>, <?php echo $listaCidade[2]['RA'] ?>, <?php echo $listaCidade[3]['RA'] ?>, <?php echo $listaCidade[4]['RA'] ?>, <?php echo $listaCidade[5]['RA'] ?>],
             backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255,0,0,0.5)",
+              "rgba(0,255,0,0.5)",
+              "rgba(255, 0, 0, 0.8)",
+              "rgba(255, 165, 0, 0.8)",
+              "rgba(0, 0, 255, 0.8)",
+              "rgba(28, 179, 125,0.8)",
             ],
             hoverBackgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255,0,0,0.3)",
+              "rgba(0,255,0,0.3)",
+              "rgba(255, 0, 0, 0.3)",
+              "rgba(255, 165, 0, 0.3)",
+              "rgba(0, 0, 255, 0.3)",
+              "rgba(28, 179, 125,0.3)",
             ]
 
           }],
           labels: [
-            "Green",
-            "Green",
-            "Green",
-            "Green"
+            "<?php echo $listaCidade[0]['cidades'] ?>",
+            "<?php echo $listaCidade[1]['cidades'] ?>",
+            "<?php echo $listaCidade[2]['cidades'] ?>",
+            "<?php echo $listaCidade[3]['cidades'] ?>",
+            "<?php echo $listaCidade[4]['cidades'] ?>",
+            "<?php echo $listaCidade[5]['cidades'] ?>"
           ]
         },
+      <?php } ?>
         options: {
           legend: {
             position: 'top',
@@ -1110,30 +1489,32 @@
     //pie chart
     var ctx = document.getElementById("pieChart");
     if (ctx) {
-      ctx.height = 200;
+      ctx.height = 260;
       var myChart = new Chart(ctx, {
+        <?php $sexoM = sexoM($conexao);
+              $sexoF = sexoF($conexao);?>
         type: 'pie',
         data: {
           datasets: [{
-            data: [45, 25, 20, 10],
+            data: [<?= $sexoM ?>, <?= $sexoF ?>],
             backgroundColor: [
               "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255, 0, 0, 0.6)",
+            
+             
             ],
             hoverBackgroundColor: [
               "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255, 0, 0, 0.6)",
+            
+            
             ]
 
           }],
           labels: [
-            "Green",
-            "Green",
-            "Green"
+            "Masculino",
+            "Feminino",
+            
           ]
         },
         options: {
@@ -1161,15 +1542,15 @@
     if (ctx) {
       ctx.height = 200;
       var myChart = new Chart(ctx, {
-        type: 'polarArea',
+        type: 'bar',
         data: {
           datasets: [{
-            data: [15, 18, 9, 6, 19],
+            data: [15, 18, 9, 6],
             backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.8)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0,0,0,0.2)",
+              "rgba(2, 123, 299,0.9)",
+              "rgba(2, 123, 299,0.8)",
+              "rgba(0, 123, 299,0.7)",
+              "rgba(0,0,0,0.5)",
               "rgba(0, 123, 255,0.5)"
             ]
 
@@ -1189,7 +1570,7 @@
             }
 
           },
-          responsive: true
+          responsive: false
         }
       });
     }
@@ -1668,3 +2049,6 @@
   }
 
 })(jQuery);
+
+
+</script>
