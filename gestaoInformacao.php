@@ -73,7 +73,7 @@ mostrarAlerta("success");
                                                 <th>PERCENTUAL</th>
                                         </thead>
 
-                                        </thead>
+                                        
                                         <tbody>
                                             
                                             <?php 

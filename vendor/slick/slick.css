@@ -30,7 +30,7 @@
 }
 .slick-list:focus
 {
-    outline: none;
+    outline: 1;
 }
 .slick-list.dragging
 {

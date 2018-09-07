@@ -93,7 +93,7 @@ html.lb-disable-scrolling {
 }
 
 .lb-nav a {
-  outline: none;
+  outline: 1;
   background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
 }
 
@@ -191,7 +191,7 @@ html.lb-disable-scrolling {
   height: 30px;
   background: url(../images/close.png) top right no-repeat;
   text-align: right;
-  outline: none;
+  outline: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
   -webkit-transition: opacity 0.2s;

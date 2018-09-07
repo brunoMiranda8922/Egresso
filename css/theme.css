@@ -60,7 +60,7 @@ input[type='button'] {
 button:focus,
 input:focus,
 textarea:focus {
-    outline: none;
+    outline: 1;
 }
 
 input, textarea {
@@ -221,7 +221,7 @@ a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-    outline: none;
+    outline: 1;
 }
 
 a:hover,
@@ -716,6 +716,11 @@ section {
     transition: all 0.5s ease;
 }
 
+.au-input .au-input--full:focus {
+    outline: 1px;
+    outline-color: #00aced;
+}
+
 .au-input--style2 {
     color: #808080;
     line-height: 43px;
@@ -729,7 +734,9 @@ section {
     -o-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    
 }
+
 
 .au-input--full {
     width: 100%;
@@ -880,7 +887,7 @@ section {
     display: block;
     max-width: 100% !important;
     width: auto !important;
-    outline: none;
+    outline: 1;
 }
 
 .rs-select2--dark {
@@ -897,7 +904,7 @@ section {
 
 .rs-select2--dark .select2-container--default .select2-selection--single {
     border: none;
-    outline: none;
+    outline: 1;
     padding-left: 18px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -989,7 +996,7 @@ section {
 
 .rs-select2--light .select2-container--default .select2-selection--single {
     border: none;
-    outline: none;
+    outline: 1;
     padding-left: 18px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1057,7 +1064,7 @@ section {
 
 .rs-select2--trans .select2-container--default .select2-selection--single {
     border: none;
-    outline: none;
+    outline: 1;
 }
 
 .rs-select2--trans .select2-container--default .select2-selection--single .select2-selection__rendered {
