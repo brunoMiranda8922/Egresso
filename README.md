@@ -10,7 +10,7 @@
 - [git clone https://github.com/brunoMiranda8922/Egresso](#)
 - [git status - Exibe arquivos/diretórios adicionados em verde e não adicionados/modificados em  vermelho](#)
 - [git add <nome> ou . :Adiciona um arquivos de especificado <nome> ou . para adicionar todos ao estágio "pré-commit"](#)
-- [git commit -m "<mensagem>" :Registra todos os arquivos adicionados em "git add..."](#)
+- [git commit -m <mensagem> :Registra todos os arquivos adicionados em "git add..."](#)
 - [git pull: Pega todos as atualizações do repositório remoto (Certifique-se de ter comitado o seu trabalho antes)](#)
 - [git push -u origin <branch>: Empurra/envia o trabalho do seu repositório para o repositório central](#)
 
