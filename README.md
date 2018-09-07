@@ -6,7 +6,7 @@
 ![egresso](http://download.seaicons.com/icons/webalys/kameleon.pics/512/Student-3-icon.png)
 
 ### Modo de instalação:
-### Egresso
+### Git
 - [git config --global user.name "Seu nome"](#)
 - [git config --global user.email seunome@example.com](#)
 - [git clone https://github.com/brunoMiranda8922/Egresso](#)
