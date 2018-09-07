@@ -89,9 +89,6 @@ function paginarTrabalha($conexao)
     
 }
 
-
-
-
 function listarResposta($conexao) 
 {
     $respostas = array();

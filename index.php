@@ -2,9 +2,8 @@
 require_once("banco/banco-usuario.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
-
 ?>
-
+<!-- Tela de login-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,11 +116,10 @@ require_once("banco/verifica-usuario.php");
     <script src="vendor/select2/select2.min.js">
     </script>
 
-    <!-- Main JS
-    <script src="js/main.php"></script>
-    -->
-
-   <?php require_once("js/main.php"); ?>
+    <!-- Ponto de observação/Divída Técnica -->
+    <script src="js/main.js"></script>
+    
+   <?php//require_once("js/main.php"); ?>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php");
+<?php require_once("cabecalho.php"); //Arquivo com função de receber e cadastrar as informações do Aluno na base de dados
 require_once("banco/conexao.php");
 require_once("banco/banco-aluno.php");
 require_once("banco/mostrar-alerta.php");

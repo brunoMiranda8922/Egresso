@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php");
+<?php require_once("cabecalho.php"); //Questionario
 require_once("banco/conexao.php");
 require_once("banco/banco-curso.php");
 require_once("banco/banco-alunos.php");

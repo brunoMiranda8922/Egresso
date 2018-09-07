@@ -1,5 +1,5 @@
 <?php  
-require_once("cabecalho.php");
+require_once("cabecalho.php"); //Formulario para preencher os dados do Egresso.
 require_once("banco/conexao.php");
 require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
@@ -168,7 +168,7 @@ $cidades = listarCidade($conexao);
                                     
                                     </div>
                                                                     
-                                    
+                                    <!-- Opção de importar os dados do egresso de um arquivo csv para a base -->
                                         <div class="col-lg-14">
                                         <div class="card">
                                             <div class="card-header">

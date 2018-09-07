@@ -1,5 +1,5 @@
 <?php 
-require_once("cabecalho.php") ;
+require_once("cabecalho.php"); //Página que exibe o curso que vai ser alterado.
 require_once("banco/conexao.php");
 require_once("banco/verifica-usuario.php");
 require_once("banco/mostrar-alerta.php");

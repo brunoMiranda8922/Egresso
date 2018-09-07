@@ -1,5 +1,5 @@
 <?php  
-require_once("banco/conexao.php");
+require_once("banco/conexao.php"); //Função que deleta um curso da base.
 //require_once("banco/banco-aluno.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");

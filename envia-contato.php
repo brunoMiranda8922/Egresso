@@ -1,4 +1,4 @@
-<?php require_once("banco/mostrar-alerta.php");
+<?php require_once("banco/mostrar-alerta.php"); //Função para enviar email.
 require_once("email/PHPMailerAutoload.php");
 session_start();
 $nome = $_POST["nome"];

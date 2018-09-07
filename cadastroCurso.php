@@ -1,4 +1,4 @@
-<?php error_reporting("E_NOTICE");
+<?php error_reporting("E_NOTICE"); //Arquivo com função de inserir um novo curso na base de dados.
 require_once("banco/conexao.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/banco-curso.php");

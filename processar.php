@@ -1,5 +1,5 @@
 <?php 
-require_once("banco/conexao.php");
+require_once("banco/conexao.php"); //Cadastra os registros de um arquivo csv na base.
 require_once("banco/banco-aluno.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");

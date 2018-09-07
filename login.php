@@ -1,4 +1,4 @@
-<?php require_once("banco/conexao.php");
+<?php require_once("banco/conexao.php"); //Função que verifica se existe email ou senha na base de dados
 require_once("banco/banco-usuario.php");
 require_once("banco/verifica-usuario.php");
 require_once("banco/mostrar-alerta.php");

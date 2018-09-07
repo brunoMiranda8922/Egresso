@@ -1,5 +1,5 @@
-<?php require_once("cabecalho.php");
-require_once("banco/conexao.php");
+<?php require_once("cabecalho.php"); //Página que lista os registros da base de dados e faz páginação. 
+require_once("banco/conexao.php");  //obs: Temos que trocar o nome do arquivo depois.
 require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
