@@ -1,4 +1,6 @@
-<?php require_once("cabecalho.php"); ?>
+<?php 
+require_once("cabecalho.php"); //Arquivo que exibe os gráficos dinâmicos da base de dados. 
+?> 
             <!-- END HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->

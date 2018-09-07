@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php");
+<?php require_once("cabecalho.php"); //Página de contato para enviar email.
 require_once("banco/conexao.php");
 require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
