@@ -1,4 +1,4 @@
-<?php require_once("cabecalho.php");
+<?php require_once("cabecalho.php"); //Pagina que gera o qrCode dinamico. 
 require_once("banco/conexao.php");
 
 
