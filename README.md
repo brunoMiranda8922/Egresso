@@ -16,47 +16,11 @@
 - [git pull: Pega todos as atualizações do repositório remoto (Certifique-se de ter comitado o seu trabalho antes)](#)
 - [git push -u origin <branch>: Empurra/envia o trabalho do seu repositório para o repositório central](#)
 
-### Egresso
-- [---------](#)
-- [---------](#)
-- [---------](#)
-- [---------](#)
-
-### Egresso
-
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-
-### Egresso
-#### Egresso
 ---------
-### Egresso
-[---------]
 
-### Egresso
-- [---------]
-- [---------]
-- [---------]
-- [---------]
-- [---------]
+### Linguagens
+- [PHP - PHP 7.0.30](https://www.w3schools.com/php/default.asp)
+- [HTML5](https://www.w3schools.com/html/default.asp)
+- [BOOTSTRAP-4 ](https://getbootstrap.com/)
+- [MySQL](https://www.w3schools.com/sql/default.asp)
 
-### Egresso
----------
