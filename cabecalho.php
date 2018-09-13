@@ -96,7 +96,7 @@
                                             
                                 <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                     <li>
-                                        <a href="qrAlunos.php">QrCode Alunos</a>
+                                        <a href="qrAlunos.php">QrCode</a>
                                     </li>
                                     <li>
                                         <a href="backup.php">Fazer Backup</a>
@@ -171,7 +171,7 @@
                                     <i class="fa fa-save"></i>Opções</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="qrAlunos.php">QrCode Alunos</a>
+                                        <a href="qrAlunos.php">QrCode</a>
                                     </li>
                                     <li>
                                         <a href="backup.php">Efetuar Backup</a>
