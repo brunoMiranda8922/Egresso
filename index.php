@@ -1,7 +1,5 @@
 <?php
-session_start();
 error_reporting(0);
-ini_set(“display_errors”, 0 );
 require_once("banco/conexao.php");
 require_once("banco/banco-usuario.php");
 require_once("banco/mostrar-alerta.php");
@@ -109,7 +107,7 @@ require_once("banco/verifica-usuario.php");
             </button>
           </div>
           <div class="modal-body">
-            <p> Problemas ao tentar conectar com servidor. Ligue para o suporte pelo numero (xx) xxxx-xxxx ou e-mail example@example.com </p>
+            <p> Problemas ao tentar conectar com servidor. Ligue para o suporte pelo número (11) 4002-8922 ou e-mail adm@fatec.com </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -147,14 +145,13 @@ require_once("banco/verifica-usuario.php");
 
     <!-- Javascript para mostrar o modal -->
        <?php
-       if ($_SESSION['respostaBD']== "conexao_erro"){?>
+       if ($exibirMensagem == "semConexao"){?>
          <script>
            $ (document).ready(function() {
               $ ('#modal_erroBD').modal('show');
               });
          </script>
       <?php } ?>
-    <!-- __________________________________ -->
 
 </body>
 
