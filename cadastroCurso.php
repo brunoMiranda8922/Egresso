@@ -7,7 +7,6 @@ $nome = $_POST['curso'];
 
 if (inserirCurso($conexao, $nome)) 
 {
-    
     $_SESSION["success"] = "Curso cadastrado com sucesso";
     header("Location: curso.php");
 } else {
