@@ -1,9 +1,13 @@
-<?php require_once("banco/verifica-usuario.php");
-require_once("banco/mostrar-alerta.php");
-error_reporting("E_NOTICE");
+<?php require_once("verifica-usuario.php");
+require_once("mostrar-alerta.php");
+
 $conexao = mysqli_connect("localhost", "bruno", "", "fatec");
-
-if (!$conexao) { 
-    $_SESSION['danger'] = "Sem conexão com a base de dados";
-
+$exibirMensagem = usuarioLogado();
+if(!$conexao) {
+    $exibirMensagem = "semConexao";
+    $_SESSION['danger']= "Erro ao conectar com o servidor :";
+  
 }
+
+?>
+

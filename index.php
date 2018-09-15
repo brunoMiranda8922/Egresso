@@ -1,7 +1,10 @@
-<?php require_once("banco/conexao.php");
+<?php
+error_reporting(0);
+require_once("banco/conexao.php");
 require_once("banco/banco-usuario.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
+
 ?>
 <!-- Tela de login-->
 <!DOCTYPE html>
@@ -63,21 +66,21 @@ require_once("banco/verifica-usuario.php");
                                     </label>
                                     <input class="au-input au-input--full" type="password" name="senha" placeholder="Senha" required>
                                 </div>
-                                
+
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entre</button>
-                                
+
                             </form>
                             <div class="register-link">
                                 <p>
                                     Entre com E-mail & Senha
-                                    
+
                                 </p>
                             </div>
                                 <?php
                                     mostrarAlerta("success");
                                     mostrarAlerta("danger");
                                 ?>
-                            
+
 
                             </div>
                     </div>
@@ -93,6 +96,24 @@ require_once("banco/verifica-usuario.php");
             </div>
         </div>
 
+    </div>
+    <div class="modal fade" id="modal_erroBD" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Erro no servidor:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p> Problemas ao tentar conectar com servidor. Ligue para o suporte pelo número (11) 4002-8922 ou e-mail adm@fatec.com </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Jquery JS-->
@@ -113,13 +134,25 @@ require_once("banco/verifica-usuario.php");
     <script src="vendor/circle-progress/circle-progress.min.js"></script>
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
-    </script>
+    <script src="vendor/select2/select2.min.js"></script>
+
+
 
     <!-- Ponto de observação/Divída Técnica -->
     <script src="js/main.js"></script>
-    
+
    <?php//require_once("js/main.php"); ?>
+
+    <!-- Javascript para mostrar o modal -->
+       <?php
+       if ($exibirMensagem == "semConexao"){?>
+         <script>
+           $ (document).ready(function() {
+              $ ('#modal_erroBD').modal('show');
+              });
+         </script>
+      <?php } ?>
+
 </body>
 
 </html>
