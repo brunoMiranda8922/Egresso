@@ -1,13 +1,12 @@
-<?php
-$conexao = mysqli_connect("localhost", "username", "password", "database");
-$_SESSION['danger']= NULL;
-$_SESSION['respostaBD']= NULL;
+<?php require_once("verifica-usuario.php");
+require_once("mostrar-alerta.php");
+
+$conexao = mysqli_connect("localhost", "bruno", "", "fatec");
+$exibirMensagem = usuarioLogado();
 if(!$conexao) {
-  $_SESSION['respostaBD']= "conexao_erro";
-  $_SESSION['danger']= "Erro ao conectar com o servidor :";
-  /*echo $_SESSION['resultadoBD'];*/
+    $exibirMensagem = "semConexao";
+    $_SESSION['danger']= "Erro ao conectar com o servidor :";
+  
 }
-/*else {
-    echo "conexao_ok";
-  }*/
+
 ?>
