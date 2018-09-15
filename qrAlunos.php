@@ -2,4 +2,4 @@
 require_once("banco/conexao.php");
 require_once("banco/funcoes.2.php");
 qrCode($conexao);
-require_once("rodape.php")?>
+require_once("rodape.php") ?>
