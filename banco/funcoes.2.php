@@ -125,7 +125,7 @@ function qrCode($conexao) {
     
     foreach($code as $resp) { 
         $qr =  "qr_img0.50j/php/qr_img.php?";
-        $qr .= "d={$resp['RA']},{$resp['nome']},{$resp['curso']},{$resp['ano']},{$resp['email']},{$resp['cidade']}&";
+        $qr .= "d={$resp['nome']},{$resp['RA']},{$resp['curso']},{$resp['cpf']},{$resp['email']}&";
         $qr .= "e=H&";
         $qr .= "s=4&";
         $qr .= "t=P";
