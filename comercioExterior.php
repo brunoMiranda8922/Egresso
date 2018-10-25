@@ -87,6 +87,7 @@ error_reporting("E_NOTICE");
                                                 <th>CIDADE</th>
                                                 <th>PERCENTUAL</th>
                                                 <th></th>
+                                                <th></th>
                                                 
                                             </tr>
                                         </thead>
@@ -108,6 +109,7 @@ error_reporting("E_NOTICE");
                                                 <td class="text-center "><?= $aluno['semestre'] ?></td>
                                                 <td><?= $aluno['cidade'] ?></td>
                                                 <td class="text-center process"><?= $aluno['PR'] ?></td>
+                                                <td><a href="frequenciaAluno.php?id=<?= $aluno['id']?>" class="btn btn-success" role="button" aria-label="Ver frequência do aluno"><i aria-hidden="true">Frenquencia</i> </td>
                                                 
                                                 
                                                 <td>
