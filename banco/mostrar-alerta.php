@@ -15,6 +15,6 @@ function mostrarAlerta($tipo){
         unset($_SESSION[$tipo]);
     }
 }
-    
+
 ?>
 
