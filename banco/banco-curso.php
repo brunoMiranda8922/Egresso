@@ -1,8 +1,8 @@
 <?php
 function listarCurso($conexao)
 {
-    $cursos    = array();
-    $query     = "SELECT * FROM cursos";
+    $cursos = array();
+    $query  = "SELECT * FROM cursos";
     $resultado = mysqli_query($conexao, $query);
     while ($curso = mysqli_fetch_assoc($resultado)) {
         $cursos[] = $curso;
@@ -13,8 +13,8 @@ function listarCurso($conexao)
 
 function listarAno($conexao)
 {
-    $anos      = array();
-    $query     = "SELECT * FROM ano";
+    $anos = array();
+    $query = "SELECT * FROM anos";
     $resultado = mysqli_query($conexao, $query);
     while ($ano = mysqli_fetch_assoc($resultado)) {
         $anos[] = $ano;
@@ -25,7 +25,7 @@ function listarAno($conexao)
 function listarSemestre($conexao)
 {
     $semestres = array();
-    $query     = "SELECT * FROM semestre";
+    $query = "SELECT * FROM semestres";
     $resultado = mysqli_query($conexao, $query);
     while ($semestre = mysqli_fetch_assoc($resultado)) {
         $semestres[] = $semestre;
@@ -36,7 +36,7 @@ function listarSemestre($conexao)
 function listarCidade($conexao)
 {
     $cidades = array();
-    $query = "SELECT * FROM cidade";
+    $query = "SELECT * FROM cidades";
     $resultado = mysqli_query($conexao, $query);
     while ($cidade = mysqli_fetch_assoc($resultado)) {
         $cidades[] = $cidade;
@@ -44,23 +44,11 @@ function listarCidade($conexao)
     return $cidades;
 }
 
-function listarArea($conexao)
-{
-    $areas = array();
-    $query = "SELECT * FROM area_curso";
-    $resultado = mysqli_query($conexao, $query);
-    while ($area = mysqli_fetch_assoc($resultado)) {
-        $areas[] = $area;
-    }
-    return $areas;
-}
-
 function alterarCurso($conexao, $id)
 {
     $query     = "SELECT * FROM cursos WHERE id = {$id}";
     $resultado = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($resultado);
-    
 }
 
 
@@ -69,6 +57,7 @@ function atualizarCurso($conexao, $id, $nome){
     $atualizar = mysqli_query($conexao, $query);
     return $atualizar; 
 }
+
 function inserirCurso($conexao, $nome) 
 {
     $query = "INSERT INTO cursos(nome) VALUES('{$nome}')";
