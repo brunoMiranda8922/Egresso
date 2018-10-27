@@ -59,7 +59,7 @@ require_once("banco/verifica-usuario.php");
                             <form action="login.php" method="POST">
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input class="au-input au-input--full" type="email" name="nome" placeholder="E-mail" autocomplete="off" required autofocus>
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="E-mail" autocomplete="off" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label>Senha
