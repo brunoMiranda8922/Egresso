@@ -1,6 +1,5 @@
 <?php require_once("cabecalho.php"); //Página que lista os registros da base de dados e faz páginação. 
 require_once("banco/conexao.php");  //obs: Temos que trocar o nome do arquivo depois.
-require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/funcoes.1.php");
@@ -44,7 +43,7 @@ error_reporting("E_NOTICE");
                                 <?php 
                                     $anos = listarAno($conexao);
                                     foreach ($anos as $ano) { ?>
-                                <option value="<?= $ano['id'] ?>"> <?= $ano['ano_formacao'] ?></option>        
+                                <option value="<?= $ano['id'] ?>"> <?= $ano['ano'] ?></option>
                                 <?php } ?> 
                                 
                                 
@@ -54,7 +53,7 @@ error_reporting("E_NOTICE");
                                 <?php 
                                     $cursos = listarCurso($conexao);
                                     foreach ($cursos as $curso) { ?>
-                                <option value="<?= $curso['id'] ?>"> <?= $curso['nome'] ?></option>        
+                                <option value="<?= $curso['id'] ?>"> <?= $curso['curso'] ?></option>
                                 <?php } ?> 
                                 
                                 
@@ -82,10 +81,11 @@ error_reporting("E_NOTICE");
                                                 <th>CPF</th>
                                                 <th>CURSO</th>
                                                 <th>EMAIL</th>
+                                                <th>TELEFONE</th>
                                                 <th>ANO</th>
                                                 <th>SEMESTRE</th>
                                                 <th>CIDADE</th>
-                                                <th>PERCENTUAL</th>
+                                                <th>STATUS</th>
                                                 <th></th>
                                                 <th></th>
                                                 
@@ -105,10 +105,11 @@ error_reporting("E_NOTICE");
                                                 <td><?= $aluno['cpf'] ?></td>
                                                 <td><?= $aluno['curso'] ?></td>
                                                 <td><?= $aluno['email'] ?></td>
+                                                <td><?= $aluno['telefone'] ?></td>
                                                 <td><?= $aluno['ano'] ?></td>
                                                 <td class="text-center "><?= $aluno['semestre'] ?></td>
                                                 <td><?= $aluno['cidade'] ?></td>
-                                                <td class="text-center process"><?= $aluno['PR'] ?></td>
+                                                <td class="text-center process"><?= $aluno['status'] ?></td>
                                                 <td><a href="frequenciaAluno.php?id=<?= $aluno['id']?>" class="btn btn-success" role="button" aria-label="Ver frequência do aluno"><i aria-hidden="true">Frenquencia</i> </td>
                                                 
                                                 
