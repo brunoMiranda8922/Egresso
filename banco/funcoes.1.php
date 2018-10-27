@@ -79,13 +79,12 @@ function isPesquisarComTodosFiltros(){
 
 function listarAlunos($conexao)
 {
-    $alunos          = array();
-    $pagina          = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+    $alunos = array();
+    $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
-    $query           = "SELECT DISTINCT  f.id, f.RA, f.cpf, f.nome, f.email, c.nome AS curso, ano_formacao AS ano, 
-                    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-                        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-                            ORDER BY ano_formacao DESC";
+    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                    INNER JOIN matricula AS M ON A.matricula_id = M.id ORDER BY ano DESC";
     $resultado_aluno = mysqli_query($conexao, $query);
     
     $total_alunos = mysqli_num_rows($resultado_aluno);
@@ -96,10 +95,9 @@ function listarAlunos($conexao)
     
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT DISTINCT f.id,  f.RA, f.cpf, f.nome, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-            ORDER BY ano_formacao DESC limit {$inicio}, {$quantidade_pagina}";
+    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                        INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                            INNER JOIN matricula AS M ON A.matricula_id = M.id ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
     $resultado_alunos = mysqli_query($conexao, $query_alunos);
     $total_alunos     = mysqli_num_rows($resultado_alunos);
@@ -117,10 +115,9 @@ function listarAlunosPorPesquisa($conexao)
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
     
-    $query = "SELECT DISTINCT f.id, f.RA, f.nome,f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.nome LIKE '%$valor_pesquisar%'  OR  f.RA LIKE '%$valor_pesquisar%' ORDER BY ano_formacao DESC";
+    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                    INNER JOIN matricula AS M ON A.matricula_id = M.id  WHERE nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%' ORDER BY ano DESC";
     
     $resultado_aluno = mysqli_query($conexao, $query);
     
@@ -132,10 +129,9 @@ function listarAlunosPorPesquisa($conexao)
     
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT DISTINCT  f.id, f.RA, f.nome, f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.nome LIKE '%$valor_pesquisar%'  OR  f.RA LIKE '%$valor_pesquisar%' ORDER BY ano_formacao DESC, RA LIMIT {$inicio}, {$quantidade_pagina}";
+    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                        INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                            INNER JOIN matricula AS M ON A.matricula_id = M.id  WHERE nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
     $resultado_alunos = mysqli_query($conexao, $query_alunos);
     $total_alunos     = mysqli_num_rows($resultado_alunos);
@@ -153,10 +149,9 @@ function listarAlunosPorAno($conexao)
     $pagina  = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $filtrar = (isset($_GET['ano_id'])) ? $_GET['ano_id'] : "";
     
-    $query = "SELECT DISTINCT f.id, f.RA, f.nome, f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.ano_id = '{$filtrar}' ORDER BY ano_formacao DESC";
+    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
+                INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id
+                    INNER JOIN cidades AS CI ON A.cidade_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE ano_id = '{$filtrar}' ORDER BY ano DESC";
     
     $resultado_aluno = mysqli_query($conexao, $query);
     
@@ -168,10 +163,9 @@ function listarAlunosPorAno($conexao)
     
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT DISTINCT f.id, f.RA, f.nome, f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.ano_id = '{$filtrar}' ORDER BY ano_formacao DESC, RA LIMIT {$inicio}, {$quantidade_pagina}";
+    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
+                        INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id
+                            INNER JOIN cidades AS CI ON A.cidade_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE ano_id = '{$filtrar}' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
     $resultado_alunos = mysqli_query($conexao, $query_alunos);
     $total_alunos     = mysqli_num_rows($resultado_alunos);
@@ -184,14 +178,13 @@ function listarAlunosPorAno($conexao)
 
 function listarAlunosPorPesquisaAndAno($conexao)
 {
-    $alunos          = array();
-    $filtrar         = $_GET['ano_id'];
+    $alunos = array();
+    $filtrar = $_GET['ano_id'];
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
-    $pagina          = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-    $query           = "SELECT DISTINCT f.id, f.RA, f.nome, f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.ano_id = '{$filtrar}' AND (f.nome LIKE '%$valor_pesquisar%' OR  f.RA LIKE '%$valor_pesquisar%') ORDER BY ano_formacao DESC";
+    $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                    INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE ano_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
     
     $resultado_aluno = mysqli_query($conexao, $query);
     
@@ -203,10 +196,9 @@ function listarAlunosPorPesquisaAndAno($conexao)
     
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT DISTINCT  f.id, f.RA, f.nome, f.cpf, f.email, c.nome AS curso, ano_formacao AS ano, 
-    data_semestre AS semestre, ci.nome AS cidade, f.PR from egressos AS f INNER JOIN cursos AS c ON f.cursos_id = c.id
-        INNER JOIN ano ON f.ano_id = ano.id INNER JOIN semestre ON f.semestre_id = semestre.id INNER JOIN cidade AS ci ON f.cidade_id = ci.id
-             WHERE f.ano_id = '{$filtrar}' AND (f.nome LIKE '%$valor_pesquisar%' OR  f.RA LIKE '%$valor_pesquisar%') ORDER BY ano_formacao DESC, RA LIMIT {$inicio}, {$quantidade_pagina}";
+    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+                        INNER JOIN anos AS AN ON A.ano_id = AN.id INNER JOIN semestres AS S ON A.semestre_id = S.id INNER JOIN cidades AS CI ON A.cidade_id = CI.id
+                            INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE ano_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
     $resultado_alunos = mysqli_query($conexao, $query_alunos);
     $total_alunos     = mysqli_num_rows($resultado_alunos);
