@@ -4,10 +4,7 @@ require_once("banco/conexao.php");
 require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
-require_once("banco/funcoes.php");
 error_reporting("E_NOTICE");
-
-
 
 $cursos = listarCurso($conexao);
 $anos = listarAno($conexao);
