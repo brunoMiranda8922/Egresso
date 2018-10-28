@@ -279,7 +279,7 @@ section {
 
 .page-container {
     background: #e5e5e5;
-    padding-left: 300px;
+    padding-left: 220px;
 }
 
 @media (max-width: 991px) {
@@ -1186,7 +1186,7 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    left: 300px;
+    left: 220px;
     height: 75px;
     z-index: 3;
 }
@@ -1576,7 +1576,7 @@ section {
 }
 
 .menu-sidebar {
-    width: 300px;
+    width: 220px;
     position: fixed;
     left: 0;
     top: 0;
@@ -1618,13 +1618,13 @@ section {
 
 .menu-sidebar__content {
     position: relative;
-    height: -webkit-calc(100vh - 75px);
-    height: -moz-calc(100vh - 75px);
+    height: -webkit-calc(50vh - 50px);
+    height: -moz-calc(50vh - 50px);
     height: calc(100vh - 75px);
 }
 
 .navbar-sidebar {
-    padding: 35px;
+    padding: 30px;
     padding-bottom: 0;
 }
 
