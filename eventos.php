@@ -1,6 +1,6 @@
-<?php  require_once("cabecalho.php"); //Página que lista e filtrar as respostas dos Egressos.
-require_once("banco/conexao.php"); //obs: depois temos que trocar o nome do arquivo
-require_once("banco/banco-aluno.php");
+<?php
+require_once("cabecalho.php");
+require_once("banco/conexao.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/funcoes.1.php");
