@@ -3,7 +3,7 @@
 function listarCurso($conexao)
 {
     $cursos = array();
-    $query  = "SELECT * FROM cursos";
+    $query = "SELECT * FROM cursos";
     $resultado = mysqli_query($conexao, $query);
     while ($curso = mysqli_fetch_assoc($resultado)) {
         $cursos[] = $curso;
@@ -67,7 +67,6 @@ function inserirCurso($conexao, $nome)
 function removerCursos($conexao, $id){
     $query = "DELETE FROM cursos WHERE id = {$id}";
     return mysqli_query($conexao, $query);
-
 }
 
 
