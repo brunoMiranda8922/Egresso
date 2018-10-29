@@ -1,7 +1,5 @@
 <?php require_once("cabecalho.php"); //Página de contato para enviar email.
 require_once("banco/conexao.php");
-require_once("banco/banco-aluno.php");
-require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
 error_reporting("E_NOTICE");
 ?>
