@@ -1,7 +1,6 @@
 <?php  
-require_once("cabecalho.php"); //Formulario para preencher os dados do Egresso.
+require_once("cabecalho.php");
 require_once("banco/conexao.php");
-require_once("banco/banco-aluno.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
 error_reporting("E_NOTICE");
