@@ -18,7 +18,7 @@ error_reporting("E_NOTICE");
          </div>
       </div>
       
-      <form  action="cadastroCurso.php" id="contact_form" method="POST" enctype="multipart/form-data"  class="form-horizontal" autocomplete="off" >
+      <form action="cadastroCurso.php" id="contact_form" method="POST" enctype="multipart/form-data" class="form-horizontal" autocomplete="off" >
          <div class="row">
             <div class="col-md-6">
                <div class="card">
@@ -66,7 +66,7 @@ error_reporting("E_NOTICE");
                                             <?php $curso = listarCurso($conexao);
                                                 foreach($curso as $cursos) { ?>
                                             <tr>
-                                                <td class="text-center process"><?= $cursos['nome'] ?></td>
+                                                <td class="text-center process"><?= $cursos['curso'] ?></td>
                                                 
                                                 <td><a class="btn btn-success btn-sm" href="alterarCurso.php?id=<?= $cursos['id']?>">Alterar</a></td>
                                                 <td>

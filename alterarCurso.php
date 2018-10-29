@@ -38,7 +38,7 @@ $cursos = alterarCurso($conexao, $id);
                            <div class="has-success form-group">
                               <label for="inputIsValid" class="form-control-label">Nome do novo Curso</label>
                              
-                              <input type="text" name="curso" value="<?=$cursos['nome'] ?>" id="inputIsValid" class="is-valid form-control-success form-control">
+                              <input type="text" name="curso" value="<?=$cursos['curso'] ?>" id="inputIsValid" class="is-valid form-control-success form-control">
                          
                            </div>
                            
