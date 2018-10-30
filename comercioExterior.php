@@ -38,7 +38,7 @@ error_reporting("E_NOTICE");
                 <div class="col-12 col-md-9">
                     <form class="form-header" action="comercioExterior.php" method="GET">
                         <input class="form-header" type="text" name="pesquisar" placeholder="pesquisar por nome &amp; RA..." autocomplete="off" />
-                            <select name="ano_id" id="select" class="form-control">
+                            <select name="anos_id" id="select" class="form-control">
                                 <option disabled selected>Filtro por ano</option>
                                 <?php 
                                     $anos = listarAno($conexao);
