@@ -1,5 +1,5 @@
 <?php require_once("banco/conexao.php"); //Função para exportar os registros para um arquivo csv
-require_once("banco/funcoes.2.php");
+require_once("banco/selecionarDados.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
 error_reporting("E_NOTICE");
