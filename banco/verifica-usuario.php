@@ -1,21 +1,25 @@
 <?php
- @session_start(); 
-function usuarioEstaLogado() {
+
+@session_start();
+function usuarioEstaLogado()
+{
     return isset($_SESSION["Usuario_logado"]);
 }
 
-
-
-function usuarioLogado() {
+function usuarioLogado()
+{
     return $_SESSION["Usuario_logado"];
 }
 
-function logaUsuario($email) {
+function logaUsuario($email)
+{
     $_SESSION["Usuario_logado"] = $email;
 }
 
-function logout() {
+function logout()
+{
     session_destroy();
     session_start();
 }
+
 ?>

@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="copyright">
-            <p>GTI © 2018 FUNDÃO. FATEC BARUERI
+            <p>GTI © 2018 - TUDO CERTO E NADA RESOLVIDO
                 <a href="#"></a>.</p>
         </div>
     </div>
@@ -37,10 +37,10 @@
 <script src="vendor/select2/select2.min.js">
 </script>
 
-<!-- Main JS
+<!-- Main JS -->
     <script src="js/main.js"></script>
-    -->
-    <?php require_once("js/main.php"); ?>
+
+    <?php //require_once("js/main.php"); ?>
 
 </body>
 </html>

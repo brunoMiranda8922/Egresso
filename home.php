@@ -1,7 +1,10 @@
-<?php require_once("cabecalho.php"); //Contém o cabeçalho do conteúdo para facilitar no momento de uma possível alteração.
-require_once("banco/funcoes.2.php");//Contém funções referente ao cadastro do questionario, feedback, e avaliação.  
-error_reporting("E_NOTICE");?>
-            <!-- MAIN CONTENT-->
+<?php
+require_once("cabecalho.php");
+require_once("banco/funcoes.2.php");
+error_reporting("E_NOTICE");
+?>
+
+<!-- MAIN CONTENT-->
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -24,7 +27,7 @@ error_reporting("E_NOTICE");?>
                     </div>
                 </div>
             </div>
-<?php mostrarAlerta('success') ?>
+    <?php mostrarAlerta('success') ?>
     <div class="row m-t-25">
         <div class="col-sm-6 col-lg-3">
 

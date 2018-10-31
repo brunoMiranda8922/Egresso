@@ -1,18 +1,25 @@
 <?php require_once("cabecalho.php"); //Arquivo com função de receber e cadastrar as informações do Aluno na base de dados
 require_once("banco/conexao.php");
-require_once("banco/banco-aluno.php");
+require_once("banco/inserirDados.php");
 require_once("banco/mostrar-alerta.php");
 error_reporting('E_NOTICE');
 
-$RA = $_POST["RA"];
-$nome = $_POST["nome"];
-$CPF = $_POST["CPF"];
-$email = $_POST["email"];
-$PR = $_POST["PR"];
-$curso_id = $_POST["cursos_id"];
-$ano_id = $_POST["ano_id"];
-$semestre_id = $_POST["semestre_id"];
-$cidade_id = $_POST["cidade_id"];
+$RA = $_POST['RA'];
+$nome = $_POST['nome'];
+$CPF = $_POST['CPF'];
+$email = $_POST['email'];
+$telefone = $_POST['telefone'];
+if (!isset($_POST['foto']))
+{
+    $foto = 'NULL';
+} else {
+    $foto = $_POST['foto'];
+}
+$curso_id = $_POST['cursos_id'];
+$ano_id = $_POST['anos_id'];
+$semestre_id = $_POST['semestres_id'];
+$cidade_id = $_POST['cidades_id'];
+$matricula_id = $_POST['matricula_id'];
 
 
 ?>
@@ -27,7 +34,7 @@ $cidade_id = $_POST["cidade_id"];
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Egressos</h2>
+                                    <h2 class="title-1">Aluno</h2>
                                     
                                 </div>
                                 
@@ -38,7 +45,7 @@ $cidade_id = $_POST["cidade_id"];
                             <div class="col-sm-4 col-lg-12">
                                 <div class="overview-item overview-item--c4">
 <?php
-    if (inserirAlunoDeNovo($conexao, $RA, $nome, $CPF, $email, $PR, $curso_id, $ano_id, $semestre_id, $cidade_id)) {
+    if (inserirAluno($conexao, $RA, $nome, $CPF, $email, $telefone, $foto, $curso_id, $ano_id, $semestre_id, $cidade_id, $matricula_id)) {
         
 ?>
         <div class="alert text-dark text-center"> Aluno(a) <strong><?= $nome ?></strong> cadastrado com sucesso. </div>

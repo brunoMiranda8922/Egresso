@@ -1,14 +1,14 @@
 <?php
+
 function listarCurso($conexao)
 {
     $cursos = array();
-    $query  = "SELECT * FROM cursos";
+    $query = "SELECT * FROM cursos";
     $resultado = mysqli_query($conexao, $query);
     while ($curso = mysqli_fetch_assoc($resultado)) {
         $cursos[] = $curso;
     }
     return $cursos;
-    
 }
 
 function listarAno($conexao)
@@ -44,30 +44,40 @@ function listarCidade($conexao)
     return $cidades;
 }
 
+function listarMatricula($conexao)
+{
+    $matriculas = array();
+    $query = "SELECT * FROM matricula";
+    $resultado = mysqli_query($conexao, $query);
+    while ($matricula = mysqli_fetch_assoc($resultado)) {
+        $matriculas[] = $matricula;
+    }
+    return $matriculas;
+}
+
 function alterarCurso($conexao, $id)
 {
-    $query     = "SELECT * FROM cursos WHERE id = {$id}";
+    $query = "SELECT * FROM cursos WHERE id = {$id}";
     $resultado = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($resultado);
 }
 
-
-function atualizarCurso($conexao, $id, $nome){ 
-    $query = "UPDATE cursos SET nome = '{$nome}' WHERE id = {$id}";
+function atualizarCurso($conexao, $id, $nome)
+{
+    $query = "UPDATE cursos SET curso = '{$nome}' WHERE id = {$id}";
     $atualizar = mysqli_query($conexao, $query);
-    return $atualizar; 
+    return $atualizar;
 }
 
-function inserirCurso($conexao, $nome) 
+function inserirCurso($conexao, $nome)
 {
-    $query = "INSERT INTO cursos(nome) VALUES('{$nome}')";
+    $query = "INSERT INTO cursos(curso) VALUES('{$nome}')";
     return mysqli_query($conexao, $query);
 }
 
 function removerCursos($conexao, $id){
     $query = "DELETE FROM cursos WHERE id = {$id}";
     return mysqli_query($conexao, $query);
-
 }
 
 
