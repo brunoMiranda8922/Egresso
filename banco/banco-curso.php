@@ -44,6 +44,17 @@ function listarCidade($conexao)
     return $cidades;
 }
 
+function listarMatricula($conexao)
+{
+    $matriculas = array();
+    $query = "SELECT * FROM matricula";
+    $resultado = mysqli_query($conexao, $query);
+    while ($matricula = mysqli_fetch_assoc($resultado)) {
+        $matriculas[] = $matricula;
+    }
+    return $matriculas;
+}
+
 function alterarCurso($conexao, $id)
 {
     $query = "SELECT * FROM cursos WHERE id = {$id}";
