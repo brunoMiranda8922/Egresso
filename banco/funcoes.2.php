@@ -13,7 +13,7 @@ function listarRespostas($conexao)
     }
     return $respostas;
 }
-
+//SELECT RA, nome, Q.* FROM questionario AS Q INNER JOIN alunos ON e.id  = Q.alunos_id GROUP BY Q.id ORDER BY Q.id DESC LIMIT 6
 function listarTrabalha($conexao) 
 {
     $respostas = array();
