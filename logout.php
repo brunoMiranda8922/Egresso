@@ -1,4 +1,5 @@
-<?php require_once("banco/verifica-usuario.php"); //Função para deslogar
+<?php
+require_once("banco/verifica-usuario.php");
 logout();
 $_SESSION["success"] = "Deslogado com sucesso";
 header("Location: index.php");

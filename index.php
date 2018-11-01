@@ -4,33 +4,26 @@ require_once("banco/conexao.php");
 require_once("banco/banco-usuario.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
-
 ?>
-<!-- Tela de login-->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
-    <!-- Title Page-->
     <title>EGRESSOS</title>
     <link rel="icon" href="images/estudo.ico">
-    <!-- Fontfaces CSS-->
+
     <link href="css/font-face.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-    <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -39,11 +32,9 @@ require_once("banco/verifica-usuario.php");
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -62,30 +53,21 @@ require_once("banco/verifica-usuario.php");
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="E-mail" autocomplete="off" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <label>Senha
-                                    </label>
+                                    <label>Senha</label>
                                     <input class="au-input au-input--full" type="password" name="senha" placeholder="Senha" required>
                                 </div>
-
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entre</button>
-
                             </form>
                             <div class="register-link">
-                                <p>
-                                    Entre com E-mail & Senha
-
-                                </p>
+                                <p>Entre com E-mail & Senha</p>
                             </div>
-                                <?php
-                                    mostrarAlerta("success");
-                                    mostrarAlerta("danger");
-                                ?>
-
-
-                            </div>
+                            <?php
+                                mostrarAlerta("success");
+                                mostrarAlerta("danger");
+                            ?>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -95,25 +77,22 @@ require_once("banco/verifica-usuario.php");
                 </div>
             </div>
         </div>
-
     </div>
     <div class="modal fade" id="modal_erroBD" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Erro no servidor:</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p> Problemas ao tentar conectar com servidor. Ligue para o suporte pelo número (11) 4002-8922 ou e-mail adm@fatec.com </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-          </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erro no servidor:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p> Problemas ao tentar conectar com servidor. Ligue para o suporte pelo número (11) 4002-8922 ou e-mail adm@fatec.com </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Jquery JS-->
@@ -136,24 +115,19 @@ require_once("banco/verifica-usuario.php");
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js"></script>
 
-
-
     <!-- Ponto de observação/Divída Técnica -->
     <script src="js/main.js"></script>
 
    <?php//require_once("js/main.php"); ?>
 
     <!-- Javascript para mostrar o modal -->
-       <?php
-       if ($exibirMensagem == "semConexao"){?>
-         <script>
-           $ (document).ready(function() {
-              $ ('#modal_erroBD').modal('show');
-              });
-         </script>
-      <?php } ?>
-
+    <?php
+        if ($exibirMensagem == "semConexao"){?>
+        <script>
+        $(document).ready(function() {
+            $('#modal_erroBD').modal('show');
+        });
+        </script>
+    <?php } ?>
 </body>
-
 </html>
-<!-- end document-->

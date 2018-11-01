@@ -1,6 +1,8 @@
-<?php require_once("banco/mostrar-alerta.php"); //Função para enviar email.
+<?php
+require_once("banco/mostrar-alerta.php");
 require_once("email/PHPMailerAutoload.php");
 session_start();
+
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $mensagem = $_POST["mensagem"];
@@ -29,7 +31,6 @@ if($mail->send()) {
 	$_SESSION["success"] = "Mensagem enviada com sucesso";
 	header("Location: contato.php");
 } else {
-
 	$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail->ErrorInfo;
 	header("Location: contato.php");
 }

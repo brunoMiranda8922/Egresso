@@ -6,7 +6,6 @@ require_once("banco/verifica-usuario.php");
 ?>
 
 <?php
-
 $nomes = $_FILES['file']['name'];
 $extensao = explode(".", $nomes);
 $verificaExtensao = end($extensao);
@@ -19,21 +18,20 @@ require_once("cabecalho.php");
 
 ?>
 <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Egressos</h2>
-                            </div>
-                        </div>
-                    </div>
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Egressos</h2>
                 </div>
-                <div class="row m-t-20">
-                    <div class="col-sm-4 col-lg-12">
-                        <div class="overview-item overview-item--c4">
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-20">
+        <div class="col-sm-4 col-lg-12">
+            <div class="overview-item overview-item--c4">
 <?php
-
 $nomes = $_FILES['file']['name'];
 $extensao = explode(".", $nomes);
 $verificaExtensao = end($extensao);

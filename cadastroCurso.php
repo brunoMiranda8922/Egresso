@@ -1,11 +1,12 @@
-<?php error_reporting("E_NOTICE"); //Arquivo com função de inserir um novo curso na base de dados.
+<?php
+error_reporting("E_NOTICE");
 require_once("banco/conexao.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/banco-curso.php");
 
 $nome = $_POST['curso'];
 
-if (inserirCurso($conexao, $nome)) 
+if (inserirCurso($conexao, $nome))
 {
     $_SESSION["success"] = "Curso cadastrado com sucesso";
     header("Location: curso.php");
