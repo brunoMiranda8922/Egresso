@@ -3,9 +3,7 @@
 function mostrarAlerta($tipo){
     if(isset($_SESSION[$tipo])){
 ?>
-
-
-   <center><div class="alert alert-<?= $tipo ?>" role="alert"> <h4> <small><?=$_SESSION[$tipo]?></div></center>
+    <center><div class="alert alert-<?= $tipo ?>" role="alert"> <h4> <small><?=$_SESSION[$tipo]?></div></center>
 
     <script>
         setTimeout(function() { document.getElementsByClassName('alert-danger')[0].remove(); }, 3000);
@@ -15,6 +13,5 @@ function mostrarAlerta($tipo){
         unset($_SESSION[$tipo]);
     }
 }
-
 ?>
 
