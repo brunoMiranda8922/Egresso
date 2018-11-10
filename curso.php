@@ -64,11 +64,11 @@ error_reporting("E_NOTICE");
                                         <?= $cursos['curso'] ?>
                                     </td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" href="alterar-curso.php ?id=<?= $cursos['id']?>">Alterar</a>
+                                        <a class="btn btn-success btn-sm" href="alterar-curso.php?id=<?= $cursos['id']?>">Alterar</a>
                                     </td>
                                     <td>
                                         <form action="deletar-cursos.php" method="POST">
-                                            <input type="hidden" name="id" value="<?= $cursos['id']  ?>">
+                                            <input type="hidden" name="id" value="<?= $cursos['id']?>">
                                             <button class="btn btn-danger btn-sm"><i class="fa fa-close"></i> Remover </button>
                                         </form>
                                     </td>
