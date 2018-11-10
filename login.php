@@ -1,6 +1,6 @@
 <?php
 require_once("banco/conexao.php");
-require_once("banco/banco-usuario.php");
+require_once("banco/buscar-usuario.php");
 require_once("banco/verifica-usuario.php");
 require_once("banco/mostrar-alerta.php");
 
@@ -11,7 +11,7 @@ if ($usuario == null){
 } else {
     $_SESSION['success'] = "Login efetuado com sucesso";
     logaUsuario($usuario["nome"]);
-    header("Location: home.php");   
+    header("Location: home.php");
 }
 die();
 ?>

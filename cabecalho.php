@@ -58,7 +58,7 @@
                                 <i class="fas fa-search"></i>Alunos</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="comercioExterior.php">Consultar Egressos</a>
+                                    <a href="comercio-exterior.php">Consultar Egressos</a>
                                 </li>
                                 <li>
                                     <a href="eventos.php">Feedback</a>
@@ -79,7 +79,7 @@
                                 <i class="fas fa-user"></i>Cadastrar</a>
                         </li>
                         <li>
-                            <a href="contato.php">
+                            <a href="contatar.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
                         </li>
 
@@ -128,7 +128,7 @@
                                 <i class="fas fa-search"></i> Alunos</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="comercioExterior.php">Consultar Egressos</a>
+                                    <a href="comercio-exterior.php">Consultar Egressos</a>
                                 </li>
                                 <li>
                                     <a href="eventos.php">Feedback</a>
@@ -147,7 +147,7 @@
                                 <i class="fas fa-user"></i>Cadastrar</a>
                         </li>
                         <li>
-                            <a href="contato.php">
+                            <a href="contatar.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
                         </li>
                         <li class="has-sub">

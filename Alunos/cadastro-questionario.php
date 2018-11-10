@@ -1,28 +1,28 @@
-<?php 
+<?php
 require_once("banco/conexao.php");
-require_once("banco/funcoes.2.php");
+require_once("banco/questinario.php");
 require_once("banco/verificar-usuario.php");
-require_once("banco/banco-usuario.php");
+require_once("banco/buscar-egresso.php");
 error_reporting('E_NOTICE');
 
 $trabalha = $_POST['trabalha'];
-if (!isset($_POST['empresa'])) 
+if (!isset($_POST['empresa']))
 {
     $empresa = 'NULL';
 } else {
     $empresa = $_POST['empresa'];
 }
-if (!isset($_POST['area'])) 
+if (!isset($_POST['area']))
 {
     $area = 'NULL';
-} else {      
+} else {
     $area = $_POST['area'];
 }
 
-if (!isset($_POST['cargo'])) 
+if (!isset($_POST['cargo']))
 {
     $cargo = 'NULL';
-} else { 
+} else {
     $cargo = $_POST['cargo'];
 }
 
@@ -33,7 +33,7 @@ $intra = $_POST['infra'];
 $recomendaria = $_POST['recomendaria'];
 $sexo = $_POST['sexo'];
 $estagio = $_POST['estagio'];
-$semestre = $_POST['semestre']; 
+$semestre = $_POST['semestre'];
 $id = $_SESSION['id'];
 //$nome = $_SESSION['email'];
 //$date = date("'Y-m-d'");
@@ -47,9 +47,9 @@ $id = $_SESSION['id'];
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Egressos</h2>
-                                    
+
                                 </div>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -58,18 +58,18 @@ $id = $_SESSION['id'];
                                 <div class="overview-item overview-item--c4">
 <?php
 
-if (cadastrarQuestionario($conexao, $trabalha, $empresa, $area, $cargo, $formacao, $cronograma, $professores, $intra, $recomendaria, $sexo, $estagio, $semestre, $id)) 
+if (cadastrarQuestionario($conexao, $trabalha, $empresa, $area, $cargo, $formacao, $cronograma, $professores, $intra, $recomendaria, $sexo, $estagio, $semestre, $id))
 { ?>
     <div class="alert text-dark text-center"> Questionario Enviado com sucesso. Muito obrigado.</div>
 <?php } else {
-        $msg = mysqli_error($conexao);    
-        
+        $msg = mysqli_error($conexao);
+
 ?>
     <div class="alert text-danger text-center"> Erro ao enviar Questionario: <?= $msg ?> </div>
-<?php    
+<?php
     }
     mysqli_close($conexao);
-?>   
+?>
  </div>
 
 <?php require_once("rodape.php") ?>

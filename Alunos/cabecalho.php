@@ -77,17 +77,17 @@
                         </li>
 
                         <li>
-                            <a href="contato.php">
+                            <a href="contatar-aluno.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
                         </li>
                         <li>
-                            <a href="map.php">
+                            <a href="enquete.php">
                                 <i class="fas fa-form"></i>Formulario</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
 
-                                <a class="js-arrow" href="conteudo.php">
+                                <a class="js-arrow" href="workshop.php">
                                 <i class="fa fa-book"></i>Conteúdos</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
 
@@ -133,15 +133,15 @@
                         </li>
 
                         <li>
-                            <a href="contato.php">
+                            <a href="contatar-aluno.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
                         </li>
                         <li>
-                            <a href="map.php">
+                            <a href="enquete.php">
                                 <i class="fas fa-file"></i>Formulario</a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="conteudo.php">
+                            <a class="js-arrow" href="workshop.php">
                                 <i class="fa fa-book"></i>Conteúdos</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
 
@@ -168,7 +168,7 @@
 
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    
+
                                     <div class="noti__item js-item-menu">
                                         <button class="btn btn-primary  btn-sm">Primeiro Acesso</button>
                                         <span class="quantity">*</span>
@@ -182,7 +182,7 @@
                                                 </div>
                                                 <div class="content">
                                                     <p class="text bg-light text-dark">Você Egresso agora tem acesso o Sistema dos Ex-alunos</p>
-                                                    <span><i class="fa fa-laptop"> </i> </i> <i class="fa fa-thumbs-up"></i> </span>  
+                                                    <span><i class="fa fa-laptop"> </i> </i> <i class="fa fa-thumbs-up"></i> </span>
                                                 </div>
                                             </div>
                                             <div class="email__item">
@@ -190,21 +190,21 @@
                                                     <img src="images/alun.ico" alt="Egresso" />
                                                 </div>
                                                 <div class="content">
-                                                    <p class="text bg-light text-dark">Com o seu acesso a nossa plataforma: 
+                                                    <p class="text bg-light text-dark">Com o seu acesso a nossa plataforma:
                                                         <ul>
                                                             <li> Metricas em relação aos formados </li>
                                                             <li> Convites para palestras ou eventos </li>
                                                             <li> Possíveis oportunidades de empregos </li>
                                                             <li> Acesso a conteúdos exclusivos </li>
-                                                        
-                                                    
-                                                   
-                                                       
-                                                        
+
+
+
+
+
                                                     </ul>
                                                     <span></span>
                                                     </p>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="email__item">
@@ -213,7 +213,7 @@
                                                 </div>
                                                 <div class="content">
                                                     <p class="text bg-light text-dark">Seu Feedback é muito importante para a FATEC</p>
-                                                    <span><a href="map.php">Acesse esse link e nos ajude a melhorar cada vez mais.</a></span>
+                                                    <span><a href="enquete.php">Acesse esse link e nos ajude a melhorar cada vez mais.</a></span>
                                                 </div>
                                             </div>
                                             <div class="email__footer">
@@ -221,7 +221,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">

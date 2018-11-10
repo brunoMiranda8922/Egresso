@@ -14,13 +14,13 @@ if (atualizarCurso($conexao, $id, $nome)) {
 header("Location: curso.php");
 } else {
     $_SESSION["danger"] = "Erro ao atualizar Curso";
-header("Location: alterarCurso.php");
-}    
-    
-    
-        
-    
-    
+header("Location: alterar-curso.php ");
+}
+
+
+
+
+
 
 
 ?>

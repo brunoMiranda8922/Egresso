@@ -20,7 +20,7 @@ $matriculas = listarMatricula($conexao);
                                 <strong>Formulario de Cadastro</strong> Alunos
                             </div>
                             <div class="card-body card-block">
-                                <form  action="cadastro-aluno.php" id="contact_form" method="POST" enctype="multipart/form-data"  class="form-horizontal" autocomplete="off">
+                                <form  action="cadastrar-aluno.php" id="contact_form" method="POST" enctype="multipart/form-data"  class="form-horizontal" autocomplete="off">
                                 <fieldset>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
@@ -179,7 +179,7 @@ $matriculas = listarMatricula($conexao);
                                         <strong>Importar arquivo</strong> Egressos
                                     </div>
                                     <?php mostrarAlerta("danger"); ?>
-                                </div>               
+                                </div>
                                     <form action="processar.php" method="POST" enctype="multipart/form-data" accep-charset="utf-8" class="form-horizontal">
                                         <div class="row form-group">
                                             <div class="col col-md-3">

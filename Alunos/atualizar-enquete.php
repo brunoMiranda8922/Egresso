@@ -2,7 +2,7 @@
 require_once("banco/conexao.php");
 require_once("banco/banco-curso.php");
 require_once("banco/banco-alunos.php");
-require_once("banco/funcoes.2.php");
+require_once("banco/questinario.php");
 $id = $_GET['id'];
 $areas = listarArea($conexao);
 
@@ -23,8 +23,8 @@ $usado = $resposta['trabalha'] ? "checked='checked'" : "";
                                 <strong>Atualizar Feedback </strong> Egresso
                             </div>
                             <div class="card-body card-block">
-                            
-                            
+
+
                                     <form action="" method="POST" class="form-horizontal">
                                     <input type="hidden" name="id" value="<?= $resposta['id'] ?>">
                                     <div class="row form-group">
@@ -35,30 +35,30 @@ $usado = $resposta['trabalha'] ? "checked='checked'" : "";
                                             <p class="form-control-static-"></p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row form-group">
-                                    
+
                                         <div class="col col-md-3">
-                                        
+
                                             <label for="text-input" class=" form-control-label">Está trabalhando atualmente?</label>
                                         </div>
-                                        
+
                                         <div class="form-check">
                                             <div class="radio">
                                                 <label for="radio1" class="form-check-label ">
                                                     <input type="radio" onclick="undisable()"  name="trabalha"  value="1"  checked = <?=$usado?> class="form-check-input" required/>Sim
                                                 </label>
-                                                
-                                                
+
+
                                             </div>
                                             <div class="radio">
                                                 <label for="radio2" class="form-check-label ">
                                                     <input type="radio" onclick="disable()"  name="trabalha" value="0" <?=$usado?> checked = <?=$usado?> class="form-check-input"/>Não
                                                 </label>
-                                                
+
                                             </div>
-                                           
-                                          
+
+
                                             </div>
                                     </div>
                                     <div class="row form-group">
@@ -78,7 +78,7 @@ $usado = $resposta['trabalha'] ? "checked='checked'" : "";
                                         <select name="area" id="text2" class="form-control" required>
                                             <option selected disabled>Selecione uma opção</option>
 
-                                            <?php  foreach($areas as $area){ 
+                                            <?php  foreach($areas as $area){
                                             $areaSelecionada = $resposta['area_trabalho'] == $area['area_curso_id'];
                                             $selecao = $areaSelecionada ? "selected='selected'" : "";
 
@@ -99,35 +99,35 @@ $usado = $resposta['trabalha'] ? "checked='checked'" : "";
                                             <input type="text" id ="text3" name="cargo"  value="<?=$resposta['cargo'] ?>" placeholder="Titulo do Cargo" class="form-control" required>
                                             <small class="help-block form-text">preencha somente se já estiver trabalhando</small>
                                         </div>
-                                                    
+
                                         </div>
                                         <script>
                                 function disable() {
                                     document.getElementById("text1").disabled = true;
                                     document.getElementById("text2").disabled = true;
-                                    document.getElementById("text3").disabled = true; 
-                                    
+                                    document.getElementById("text3").disabled = true;
+
                                 }
 
                                 function undisable() {
                                     document.getElementById("text1").disabled = false;
                                     document.getElementById("text2").disabled = false;
                                     document.getElementById("text3").disabled = false;
-                                    
+
                                 }
                                 </script>
-                            
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-success">
                                 <i class="fa fa-dot-circle-o"></i> Atualizar
                                 </button>
-                                
+
                                 </form>
                             </div>
 
                             </div>
                             </div>
-                                                    
+
 
 
 <?php require_once("rodape.php"); ?>

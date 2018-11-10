@@ -23,10 +23,10 @@ $mail->AltBody = "De: {$nome}\nemail:{$email}\nmensagem: {$mensagem}";
 
 if($mail->send()) {
 	$_SESSION["success"] = "Mensagem enviada com sucesso";
-	header("Location: contato.php");
+	header("Location: contatar-aluno.php");
 } else {
 
 	$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail->ErrorInfo;
-	header("Location: contato.php");
+	header("Location: contatar-aluno.php");
 }
 die();

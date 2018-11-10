@@ -1,6 +1,6 @@
-<?php 
+<?php
 require_once("banco/conexao.php");
-require_once("banco/inserirDados.php");
+require_once("banco/inserir-dados-aluno.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
 ?>
@@ -9,7 +9,7 @@ require_once("banco/verifica-usuario.php");
 $nomes = $_FILES['file']['name'];
 $extensao = explode(".", $nomes);
 $verificaExtensao = end($extensao);
-if ($verificaExtensao != 'csv') { 
+if ($verificaExtensao != 'csv') {
     $_SESSION["danger"] = "Extensão Inválida";
     header("Location: form.php");
     die();
@@ -49,7 +49,7 @@ if ($verificaExtensao == 'csv') {
         $semestre_id = $row[7];
         $ano_id = $row[6];
         $cidade_id = $row[8];
-            
+
         if (inserirAlunoDeNovo($conexao, $RA, $nome, $CPF, $email, $PR, $curso_id, $ano_id, $semestre_id, $cidade_id)) { ?>
             <div class="alert text-dark text-center"> Aluno(a) cadastrado com sucesso <strong> <?= $nome ?> </strong> </div>
         <?php
