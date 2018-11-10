@@ -1,7 +1,7 @@
 <?php
 require_once("cabecalho.php");
 require_once("banco/conexao.php");
-require_once("banco/inserirDados.php");
+require_once("banco/inserir-dados-aluno.php");
 require_once("banco/mostrar-alerta.php");
 error_reporting('E_NOTICE');
 
@@ -49,16 +49,16 @@ $matricula_id = $_POST['matricula_id'];
         $msg =  mysqli_error($conexao);
 ?>
         <div class="text text-danger text-center text-lg"> Erro ao cadastrar Aluno(a): </strong><?= $nome ?></strong>, </strong> RA:<?= $RA ?></strong>, <?= $msg  ?> </div>
-<?php    
+<?php
     }
     mysqli_close($conexao);
 ?>
         </div>
     <div class="alert alert-dark alert-center" role="alert">
 	    Erro ao cadastrar? Verifique se o mesmo já não está cadastrado no sistema.
-	    <a href="comercioExterior.php" class="alert-link">Click para conferir</a><br/>
+	    <a href="comercio-exterior.php" class="alert-link">Click para conferir</a><br/>
     </div>
 </div>
 </div>
-            
+
 <?php require_once("rodape.php"); ?>

@@ -1,5 +1,5 @@
 <?php require_once("banco/conexao.php");
-require_once("banco/banco-usuario.php");
+require_once("banco/buscar-egresso.php");
 require_once("banco/verificar-usuario.php");
 require_once("banco/mostrar-alerta.php");
 

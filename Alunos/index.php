@@ -1,5 +1,5 @@
 <?php require_once("banco/conexao.php");
-require_once("banco/banco-usuario.php");
+require_once("banco/buscar-egresso.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verificar-usuario.php");
 
@@ -52,7 +52,7 @@ require_once("banco/verificar-usuario.php");
 
                             <a href="http://www.fatecbarueri.edu.br/">
                                 <img src="images/fatec.png" alt="FATEC">
-                                
+
                             </a>
                         </div>
                         <div class="login-form">
@@ -66,21 +66,21 @@ require_once("banco/verificar-usuario.php");
                                     </label>
                                     <input class="au-input au-input--full" type="password" name="cpf" placeholder="Seu cpf" required>
                                 </div>
-                                
+
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entre</button>
-                                
+
                             </form>
                             <div class="register-link">
                                 <p>
                                     Entre com E-mail e CPF
-                                    
+
                                 </p>
                             </div>
                                 <?php
                                     mostrarAlerta("success");
                                     mostrarAlerta("danger");
                                 ?>
-                            
+
 
                             </div>
                     </div>

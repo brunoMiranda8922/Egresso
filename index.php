@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 require_once("banco/conexao.php");
-require_once("banco/banco-usuario.php");
+require_once("banco/buscar-usuario.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
 ?>

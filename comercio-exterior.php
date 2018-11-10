@@ -3,7 +3,7 @@ require_once("cabecalho.php");
 require_once("banco/conexao.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
-require_once("banco/funcoes.1.php");
+require_once("banco/filtrar-listar-alunos.php");
 error_reporting("E_NOTICE");
 ?>
 
@@ -23,11 +23,11 @@ error_reporting("E_NOTICE");
             </div>
             <?php mostrarAlerta("success"); ?>
                 <div class="col-12 col-md-9">
-                    <form class="form-header" action="comercioExterior.php" method="GET">
+                    <form class="form-header" action="comercio-exterior.php" method="GET">
                         <input class="form-header" type="text" name="pesquisar" placeholder="pesquisar por nome &amp; RA..." autocomplete="off" />
                             <select name="anos_id" id="select" class="form-control">
                                 <option disabled selected>Filtro por ano</option>
-                                <?php 
+                                <?php
                                     $anos = listarAno($conexao);
                                     foreach ($anos as $ano) { ?>
                                 <option value="<?= $ano['id'] ?>"> <?= $ano['ano'] ?></option>
@@ -35,7 +35,7 @@ error_reporting("E_NOTICE");
                             </select>
                             <select name="cursos_id" id="select" class="form-control">
                                 <option disabled selected>Filtro por Curso</option>
-                                <?php 
+                                <?php
                                     $cursos = listarCurso($conexao);
                                     foreach ($cursos as $curso) { ?>
                                 <option value="<?= $curso['id'] ?>"> <?= $curso['curso'] ?></option>
@@ -112,7 +112,7 @@ error_reporting("E_NOTICE");
                                 if ($pagina_anterior != 0) {
                                 ?>
 
-                                <a class="btn btn-primary" href="comercioExterior.php?pagina=<?= $pagina_anterior; ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>" aria-label="Previous"><span aria-hidden="true">Voltar</span></a>
+                                <a class="btn btn-primary" href="comercio-exterior.php?pagina=<?= $pagina_anterior; ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>" aria-label="Previous"><span aria-hidden="true">Voltar</span></a>
 
                                 <?php
                                 } else {
@@ -130,11 +130,11 @@ error_reporting("E_NOTICE");
                                         if ($pagina == $i) {
                                 ?>
 
-                                        <a class="btn btn-warning" href="comercioExterior.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
+                                        <a class="btn btn-warning" href="comercio-exterior.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
                                     <?php
                                         } else {
                                     ?>
-                                        <a class="btn btn-secondary" href="comercioExterior.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
+                                        <a class="btn btn-secondary" href="comercio-exterior.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
                                     <?php
                                         }
                                     }
@@ -143,7 +143,7 @@ error_reporting("E_NOTICE");
                                     <?php
                                         if($pagina_posterior <= $quantidade_paginas){
                                     ?>
-                                        <a class="btn btn-primary" href="comercioExterior.php?pagina=<?=  $pagina_posterior; ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>" aria-label="Previous"><span aria-hidden="true">Proxima</span></a>
+                                        <a class="btn btn-primary" href="comercio-exterior.php?pagina=<?=  $pagina_posterior; ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>" aria-label="Previous"><span aria-hidden="true">Proxima</span></a>
                                     <?php
                                         } else {
                                     ?>

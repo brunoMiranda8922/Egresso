@@ -15,7 +15,7 @@ error_reporting("E_NOTICE");
                     </div>
                 </div>
             </div>
-            <form action="cadastroCurso.php" id="contact_form" method="POST" enctype="multipart/form-data" class="form-horizontal" autocomplete="off">
+            <form action="cadastrar-curso.php" id="contact_form" method="POST" enctype="multipart/form-data" class="form-horizontal" autocomplete="off">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
@@ -64,7 +64,7 @@ error_reporting("E_NOTICE");
                                         <?= $cursos['curso'] ?>
                                     </td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" href="alterarCurso.php?id=<?= $cursos['id']?>">Alterar</a>
+                                        <a class="btn btn-success btn-sm" href="alterar-curso.php ?id=<?= $cursos['id']?>">Alterar</a>
                                     </td>
                                     <td>
                                         <form action="deletar-cursos.php" method="POST">

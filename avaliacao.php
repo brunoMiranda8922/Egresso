@@ -3,7 +3,7 @@ require_once("cabecalho.php");
 require_once("banco/conexao.php");
 require_once("banco/banco-curso.php");
 require_once("banco/mostrar-alerta.php");
-require_once("banco/funcoes.1.php");
+require_once("banco/filtrar-listar-alunos.php");
 require_once("banco/funcoes.2.php");
 error_reporting("E_NOTICE");
 ?>
@@ -45,7 +45,7 @@ error_reporting("E_NOTICE");
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
                                     $respostas = listarResposta($conexao);
                                     $contar = count($respostas);
                                 ?>

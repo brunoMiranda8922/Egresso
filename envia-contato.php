@@ -24,14 +24,14 @@ $mail->AddReplyTo('fatecbarueri.adm@gmail.com', 'Email');
 $mail->Subject = "Email de contato da Fatec Barueri\n".$data;
 $mail->msgHTML("<html><strong>De</strong>: {$nome}<br/><strong>Email</strong>: {$email}<br/><strong>Mensagem</strong>: {$mensagem}<br/><strong>Link</strong>: {$link}</html>");
 $mail->CharSet ="UTF-8";
-$mail->AddAttachment("http://www.fatecbarueri.com/projeto/Alunos/"); 
+$mail->AddAttachment("http://www.fatecbarueri.com/projeto/Alunos/");
 $mail->AltBody = "De: {$nome}\nemail:{$email}\nmensagem: {$mensagem}\nlink: {$link}";
 
 if($mail->send()) {
 	$_SESSION["success"] = "Mensagem enviada com sucesso";
-	header("Location: contato.php");
+	header("Location: contatar.php");
 } else {
 	$_SESSION["danger"] = "Erro ao enviar mensagem " . $mail->ErrorInfo;
-	header("Location: contato.php");
+	header("Location: contatar.php");
 }
 die();

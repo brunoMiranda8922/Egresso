@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("cabecalho.php"); //Página que exibe o curso que vai ser alterado.
 require_once("banco/conexao.php");
 require_once("banco/verifica-usuario.php");
@@ -19,12 +19,12 @@ $cursos = alterarCurso($conexao, $id);
             <!-- END USER DATA-->
          </div>
       </div>
-      <?php  
+      <?php
        mostrarAlerta("success");
-       mostrarAlerta("danger"); 
+       mostrarAlerta("danger");
        ?>
-        
-      <form  action="atualizarCurso.php" id="contact_form" method="POST" enctype="multipart/form-data"  class="form-horizontal" autocomplete="off" >
+
+      <form  action="atualizar-curso.php" id="contact_form" method="POST" enctype="multipart/form-data"  class="form-horizontal" autocomplete="off" >
       <input type="hidden" name="id" value="<?= $cursos["id"] ?>">
          <div class="row">
             <div class="col-md-6">
@@ -37,11 +37,11 @@ $cursos = alterarCurso($conexao, $id);
                         <div class="card-body card-block">
                            <div class="has-success form-group">
                               <label for="inputIsValid" class="form-control-label">Nome do novo Curso</label>
-                             
+
                               <input type="text" name="curso" value="<?=$cursos['curso'] ?>" id="inputIsValid" class="is-valid form-control-success form-control">
-                         
+
                            </div>
-                           
+
                         </div>
                      </div>
                      <div class="card-footer">
@@ -49,13 +49,13 @@ $cursos = alterarCurso($conexao, $id);
                         <i class="fa fa-align-justify"></i> Atualizar
                         </button>
       </form>
-      
+
       </div>
-      
+
       </div>
       </div>
       </div>
-      
+
    </div>
 </div>
 </div>

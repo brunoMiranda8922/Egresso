@@ -1,6 +1,6 @@
 <?php
 require_once("banco/conexao.php");
-require_once("banco/selecionarDados.php");
+require_once("banco/selecionar-dados-aluno.php");
 require_once("banco/mostrar-alerta.php");
 require_once("banco/verifica-usuario.php");
 error_reporting("E_NOTICE");
