@@ -1,7 +1,7 @@
 <?php require_once("cabecalho.php"); //Questionario
-require_once("banco/conexao.php");
-require_once("banco/banco-curso.php");
-require_once("banco/banco-alunos.php");
+require_once("model/conexao.php");
+require_once("model/banco-curso.php");
+require_once("model/banco-alunos.php");
 error_reporting("E_NOTICE");
 $areas = listarArea($conexao);
 ?>
