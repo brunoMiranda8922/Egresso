@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
-require_once("banco/conexao.php");
-require_once("banco/buscar-usuario.php");
-require_once("banco/mostrar-alerta.php");
-require_once("banco/verifica-usuario.php");
+require_once("model/conexao.php");
+require_once("model/buscar-usuario.php");
+require_once("model/mostrar-alerta.php");
+require_once("model/verifica-usuario.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@ require_once("banco/verifica-usuario.php");
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="login.php" method="POST">
+                            <form action="controller/login.php" method="POST">
                                 <div class="form-group">
                                     <label>E-mail</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="E-mail" autocomplete="off" required autofocus>
