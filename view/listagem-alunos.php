@@ -86,7 +86,7 @@ error_reporting("E_NOTICE");
                                                 <td class="text-center process"><?= $aluno['status'] ?></td>
                                                 <td><a href="frequenciaAluno.php?id=<?= $aluno['id']?>" class="btn btn-success" role="button" aria-label="Ver frequência do aluno"><i aria-hidden="true">Frenquencia</i> </td>
                                                 <td>
-                                                    <form action="deletar-aluno.php" method="POST">
+                                                    <form action="../controller/deletar-aluno.php" method="POST">
                                                     <input type="hidden" name="id" value="<?= $aluno['id']  ?>">
                                                         <button class="btn btn-danger"><i class="fa fa-close"></i> </button>
                                                     </form>
@@ -99,7 +99,7 @@ error_reporting("E_NOTICE");
                                 <?php
                                 $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
                                 $valor_pesquisar = (isset($_GET['pesquisar']) && !empty($_GET['pesquisar'])) ? "&pesquisar={$_GET['pesquisar']}" : "";
-                                $ano_id = (isset($_GET['ano_id'])) ? "&ano_id={$_GET['ano_id']}" : "";
+                                $ano_id = (isset($_GET['anos_id'])) ? "&anos_id={$_GET['anos_id']}" : "";
                                 $curso = (isset($_GET['cursos_id'])) ? "&cursos_id={$_GET['cursos_id']}" : "";
 
                                 $pagina_anterior = $pagina - 1;
@@ -130,11 +130,11 @@ error_reporting("E_NOTICE");
                                         if ($pagina == $i) {
                                 ?>
 
-                                        <a class="btn btn-warning" href="listagem-alunos.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
+                                        <a class="btn btn-warning" href="listagem-alunos.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a>
                                     <?php
                                         } else {
                                     ?>
-                                        <a class="btn btn-secondary" href="listagem-alunos.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a></li>
+                                        <a class="btn btn-secondary" href="listagem-alunos.php?pagina=<?= $i ?><?= $valor_pesquisar ?><?= $ano_id ?><?= $curso ?>"><?= $i ?></a>
                                     <?php
                                         }
                                     }
