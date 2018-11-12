@@ -10,17 +10,14 @@ $nome = $_POST['nome'];
 $CPF = $_POST['CPF'];
 $email = $_POST['email'];
 $telefone = $_POST['telefone'];
-if (!isset($_POST['foto']))
-{
-    $foto = 'NULL';
-} else {
-    $foto = $_POST['foto'];
-}
+$foto = $_FILES['foto']['name'];
+$temp = $_FILES['foto']['tmp_name'];
 $curso_id = $_POST['cursos_id'];
 $ano_id = $_POST['anos_id'];
 $semestre_id = $_POST['semestres_id'];
 $cidade_id = $_POST['cidades_id'];
 $matricula_id = $_POST['matricula_id'];
+move_uploaded_file($temp, "/var/www/html/APP/projeto-v2/images/".$foto)
 
 
 ?>
