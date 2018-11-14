@@ -83,7 +83,7 @@ function listarAlunos($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id ORDER BY ano DESC";
 
@@ -93,7 +93,7 @@ function listarAlunos($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -111,7 +111,7 @@ function listarAlunosPorPesquisa($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id  WHERE nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%' ORDER BY ano DESC";
     
@@ -121,7 +121,7 @@ function listarAlunosPorPesquisa($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id  WHERE nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -140,7 +140,7 @@ function listarAlunosPorAno($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
                 INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id
                     INNER JOIN cidades AS CI ON A.cidades_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' ORDER BY ano DESC";
     
@@ -150,7 +150,7 @@ function listarAlunosPorAno($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
                         INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id
                             INNER JOIN cidades AS CI ON A.cidades_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -169,7 +169,7 @@ function listarAlunosPorPesquisaAndAno($conexao)
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
     
@@ -179,7 +179,7 @@ function listarAlunosPorPesquisaAndAno($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -197,7 +197,7 @@ function listarAlunosPorCurso($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' ORDER BY ano DESC";
 
@@ -207,7 +207,7 @@ function listarAlunosPorCurso($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -226,7 +226,7 @@ function listarAlunosPorPesquisaAndCurso($conexao)
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
 
@@ -236,7 +236,7 @@ function listarAlunosPorPesquisaAndCurso($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -255,7 +255,7 @@ function listarAlunosPorAnoandCurso($conexao)
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidadess_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = {$filtrar} AND cursos_id = {$curso} ORDER BY ano DESC";
 
@@ -265,7 +265,7 @@ function listarAlunosPorAnoandCurso($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND anos_id = '{$filtrar}' ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -285,7 +285,7 @@ function listarAlunosPorPesquisaAndAnoAndCuso($conexao)
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
 
@@ -295,7 +295,7 @@ function listarAlunosPorPesquisaAndAnoAndCuso($conexao)
     $numero_pagina = ceil($total_alunos / $quantidade_pagina);
     $inicio = ($quantidade_pagina * $pagina) - $quantidade_pagina;
     
-    $query_alunos = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query_alunos = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                         INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestress_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                             INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC LIMIT {$inicio}, {$quantidade_pagina}";
     
@@ -349,7 +349,7 @@ function paginarlistarAlunos($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id ORDER BY ano DESC";
 
@@ -367,7 +367,7 @@ function paginarlistarAlunosPorPesquisa($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id  WHERE nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%' ORDER BY ano DESC";
     
@@ -385,7 +385,7 @@ function paginarlistarAlunosPorAno($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A
                 INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id
                     INNER JOIN cidades AS CI ON A.cidades_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' ORDER BY ano DESC";
     
@@ -404,7 +404,7 @@ function paginarlistarAlunosPorPesquisaAndAno($conexao)
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
     
@@ -422,7 +422,7 @@ function paginarlistarAlunosPorCurso($conexao)
     $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
 
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' ORDER BY ano DESC";
 
@@ -441,7 +441,7 @@ function paginarlistarAlunosPorPesquisaAndCurso($conexao)
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
 
@@ -460,7 +460,7 @@ function paginarlistarAlunosPorAnoandCurso($conexao)
     $curso = (isset($_GET['cursos_id'])) ? $_GET['cursos_id'] : "";
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE anos_id = {$filtrar} AND cursos_id = {$curso} ORDER BY ano DESC";
 
@@ -480,7 +480,7 @@ function paginarlistarAlunosPorPesquisaAndAnoAndCuso($conexao)
     $filtrar = (isset($_GET['anos_id'])) ? $_GET['anos_id'] : "";
     $valor_pesquisar = (isset($_GET['pesquisar'])) ? $_GET['pesquisar'] : "";
     
-    $query = "SELECT RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
+    $query = "SELECT A.id, RA, nome, cpf, email, telefone, foto, curso, ano, semestre, cidade, status FROM alunos AS A INNER JOIN cursos AS C ON A.cursos_id = C.id
                 INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id INNER JOIN cidades AS CI ON A.cidades_id = CI.id
                     INNER JOIN matricula AS M ON A.matricula_id = M.id WHERE cursos_id = '{$curso}' AND anos_id = '{$filtrar}' AND (nome LIKE '%$valor_pesquisar%' OR RA LIKE '%$valor_pesquisar%') ORDER BY ano DESC";
 

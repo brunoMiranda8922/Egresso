@@ -17,8 +17,7 @@ $ano_id = $_POST['anos_id'];
 $semestre_id = $_POST['semestres_id'];
 $cidade_id = $_POST['cidades_id'];
 $matricula_id = $_POST['matricula_id'];
-move_uploaded_file($temp, "/var/www/html/APP/projeto-v2/images/".$foto)
-
+move_uploaded_file($temp, "/var/www/html/APP/projetoQrCode/assets/imagens/".$foto);
 
 ?>
             <!-- HEADER DESKTOP-->
