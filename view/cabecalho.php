@@ -10,22 +10,22 @@
     <title>FATEC BARUERI</title>
     <link rel="icon" href="../images/estudo.ico">
 
-    <link href="../css/font-face.css" rel="stylesheet" media="all">
-    <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../assets/css/font-face.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-    <link href="../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <link href="../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="../vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="../vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-    <link href="../css/theme.css" rel="stylesheet" media="all">
+    <link href="../assets/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
