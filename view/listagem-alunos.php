@@ -75,7 +75,7 @@ error_reporting("E_NOTICE");
                                             foreach ($alunos as $aluno) {
                                         ?>
                                             <tr>
-                                                <td><img src="../images/<?= $aluno['foto'] ?>" style="height: 50px;" title="sua foto"></td>
+                                                <td><img src="../../projetoQrCode/assets/imagens/<?= $aluno['foto'] ?>" style="height: 50px;" title="sua foto"></td>
                                                 <td class="text-center process"><?= $aluno['RA'] ?></td>
                                                 <td><?= $aluno['nome'] ?></td>
                                                 <td><?= $aluno['cpf'] ?></td>
