@@ -80,7 +80,7 @@ $matriculas = listarMatricula($conexao);
                                             <label for="valor" class="form-control-label">Foto</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="file" id="valor" name="foto" placeholder="Telefone do aluno" class="form-control" accept="image/*">
+                                            <input type="file" id="valor" name="foto" placeholder="Telefone do aluno" class="form-control" accept="image/*" required>
                                             <small class="help-block form-text">Inserir foto do aluno </small>
                                         </div>
                                     </div>

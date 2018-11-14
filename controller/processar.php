@@ -44,13 +44,15 @@ if ($verificaExtensao == 'csv') {
         $nome = $row[1];
         $CPF = $row[2];
         $email = $row[3];
-        $PR = $row[4];
-        $curso_id = $row[5];
-        $semestre_id = $row[7];
-        $ano_id = $row[6];
-        $cidade_id = $row[8];
+        $telefone = $row[4];
+        $foto = $row[5];
+        $curso_id = $row[6];
+        $ano_id = $row[7];
+        $semestre_id = $row[8];
+        $cidade_id = $row[9];
+        $matricula_id = $row[10];
 
-        if (inserirAlunoDeNovo($conexao, $RA, $nome, $CPF, $email, $PR, $curso_id, $ano_id, $semestre_id, $cidade_id)) { ?>
+        if (inserirAluno($conexao, $RA, $nome, $CPF, $email, $telefone, $curso_id, $ano_id, $semestre_id, $cidade_id, $matricula_id)) { ?>
             <div class="alert text-dark text-center"> Aluno(a) cadastrado com sucesso <strong> <?= $nome ?> </strong> </div>
         <?php
         } else {
