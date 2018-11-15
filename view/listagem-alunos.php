@@ -86,7 +86,7 @@ error_reporting("E_NOTICE");
                                                 <td class="text-center"><?= $aluno['semestre'] ?></td>
                                                 <td><?= $aluno['cidade'] ?></td>
                                                 <td class="text-center process"><?= $aluno['status'] ?></td>
-                                                <td><a href="frequenciaAluno.php?id=<?= $aluno['id']?>" class="btn btn-success" role="button" aria-label="Ver frequência do aluno"><i aria-hidden="true">Frenquencia</i> </td>
+                                                <td><a href="frequencia-alunos.php?id=<?= $aluno['id']?>" class="btn btn-success" role="button" aria-label="Ver frequência do aluno"><i aria-hidden="true">Frenquencia</i> </td>
                                                 <td>
                                                     <form action="../controller/deletar-aluno.php" method="POST">
                                                     <input type="hidden" name="id" value="<?= $aluno['id']  ?>">
