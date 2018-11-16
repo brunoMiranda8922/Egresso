@@ -126,11 +126,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">A formação na Fatec:</label></strong>
+                                            <strong><label class=" form-control-label">No Requisito trabalho:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-"> foi fundamental para ingressar no mercado de trabalho</p>
+                                        <p class="form-control-static-"> Meu excesso de faltas refere-se a dificuldade de conciliar o trabalho e o colégio. </p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -160,11 +160,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">O cronograma da :</label></strong>
+                                            <strong><label class=" form-control-label">No Requisito transporte:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-">Fatec foi adequado para atender as demandas do curso</p>
+                                        <p class="form-control-static-">Meu excesso de faltas refere-se a carência de meio de transporte.</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -194,11 +194,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">Avalie:</label></strong>
+                                            <strong><label class=" form-control-label">No Requisito motivação:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-"> os professores da Fatec</p>
+                                        <p class="form-control-static-"> Meu excesso de faltas refere-se a falta de motivação e interesse.</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -228,11 +228,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">A infraestrutura:</label></strong>
+                                            <strong><label class=" form-control-label">No Requisito financeiro:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-"> da Fatec apresenta uma qualidade</p>
+                                        <p class="form-control-static-"> Meu excesso de faltas refere-se a renda insuficiente para manter os estudos ( ônibus, materiais escolares, entre outros).</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -266,7 +266,7 @@ $areas = listarArea($conexao);
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-">recomendaria a Fatec para um amigo</p>
+                                        <p class="form-control-static-">Desejo continuar frequentando o curso.</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -317,11 +317,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">Durante o:</label></strong>
+                                            <strong><label class=" form-control-label">Eu:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-">periodo na faculdade, conseguiu algum estágio</p>
+                                        <p class="form-control-static-">Mesmo com excesso de faltas recomendaria o curso para alguem.</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -343,11 +343,11 @@ $areas = listarArea($conexao);
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <strong><label class=" form-control-label">Durante a:</label></strong>
+                                            <strong><label class=" form-control-label">Você:</label></strong>
 
                                         </div>
                                         <div class="col-12 col-md-9">
-                                        <p class="form-control-static-">faculdade, se formou em quantos semestres</p>
+                                        <p class="form-control-static-">Esta a quantos semestres na faculdade?</p>
                                         </div>
                                     </div>
                                     <div class="row form-group">
