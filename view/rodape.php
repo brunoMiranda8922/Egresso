@@ -3,18 +3,14 @@
     <div class="col-md-12">
         <div class="copyright">
             <p>GTI © 2018 - TUDO CERTO E NADA RESOLVIDO
-                <a href="#"></a>.</p>
+                <a href="#"></a>!</p>
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-<!-- END MAIN CONTENT-->
-<!-- END PAGE CONTAINER-->
-</div>
 
-</div>
+
+
+
 
 <!-- Jquery JS-->
 <script src="../assets/vendor/jquery-3.2.1.min.js"></script>

@@ -877,24 +877,24 @@
     //bar chart
     var ctx = document.getElementById("barChart");
     if (ctx) {
-      ctx.height = 200;
+      ctx.height = 208;
       var myChart = new Chart(ctx, {
         type: 'bar',
         defaultFontFamily: 'Poppins',
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
           datasets: [
             {
-              label: "My First dataset",
-              data: [65, 59, 80, 81, 56, 55, 40],
+              label: "Presença",
+              data: [8, 9, 10, 12, 12, 22, 31],
               borderColor: "rgba(0, 123, 255, 0.9)",
               borderWidth: "0",
               backgroundColor: "rgba(0, 123, 255, 0.5)",
               fontFamily: "Poppins"
             },
             {
-              label: "My Second dataset",
-              data: [28, 48, 40, 19, 86, 27, 90],
+              label: "Faltas",
+              data: [28, 8, 30, 19, 6, 27, 31],
               borderColor: "rgba(0,0,0,0.09)",
               borderWidth: "0",
               backgroundColor: "rgba(0,0,0,0.07)",
