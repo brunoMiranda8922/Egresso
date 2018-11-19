@@ -30,7 +30,6 @@
     <link href="../../assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="../../assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
     <link href="../../assets/css/theme.css" rel="stylesheet" media="all">
 
 </head>

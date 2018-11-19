@@ -8,6 +8,10 @@ function usuarioEstaLogado()
 
 function usuarioLogado()
 {
+    if (!isset($_SESSION["Usuario_logago"]))
+    {
+        return session_destroy();
+    }
     return $_SESSION["Usuario_logado"];
 }
 
