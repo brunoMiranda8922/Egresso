@@ -114,5 +114,39 @@ function qrCode($conexao)
     <?php
     }
     return $qr;
+}
+
+function listarFrequenciaDia($conexao, $id)
+{
+
+    $query = "SELECT nome, F.RA, MONTH(data_entrada) AS MES, DAY(data_entrada) AS DIA, COUNT(F.RA) AS QUANTIDADE FROM frequencia AS F
+                LEFT JOIN alunos as A ON F.RA = A.RA WHERE A.id = '{$id}'
+                    GROUP BY MONTH(data_entrada), DAY(data_entrada) ORDER BY DIA DESC LIMIT 5";
+    $resultado = mysqli_query($conexao, $query);
+    while($row = mysqli_fetch_object($resultado))
+    {
+        $totalMes = $row->MES;
+        $totalDia = $row->DIA;
+        $totalFrequencia = $row->QUANTIDADE;
+
+        $total[] = ['mes' => $totalMes, 'dia' => $totalDia, 'frequencia' => $totalFrequencia];
+
     }
+    return $total;
+}
+
+function listarDadosFrequencia($conexao, $id)
+{
+    $dados = array();
+    $query = "SELECT A.id, A.RA, nome, email, curso, status, MONTH(data_entrada) AS MES, DAY(data_entrada) AS DIA, TIME(data_entrada) AS HORARIO FROM alunos AS A
+                INNER JOIN cursos AS C ON A.cursos_id = C.id INNER JOIN anos AS AN ON A.anos_id = AN.id INNER JOIN semestres AS S ON A.semestres_id = S.id
+                    INNER JOIN cidades AS CI ON A.cidades_id = CI.id INNER JOIN matricula AS M ON A.matricula_id = M.id RIGHT JOIN frequencia as F ON A.RA = F.RA
+                        WHERE A.id = '{$id}' ORDER BY TIME(data_entrada) DESC";
+    $resultado = mysqli_query($conexao, $query);
+    while($row = mysqli_fetch_assoc($resultado))
+    {
+        $dados[] = $row;
+    }
+    return $dados;
+}
 ?>
