@@ -12,6 +12,8 @@ $alunos = alunosVerFrequencia($conexao, $id);
 $frequencia = listarFrequenciaDia($conexao, $id);
 $dados = listarDadosFrequencia($conexao, $id);
 
+$mesFiltrar = listarMes($conexao);
+
 $frequencia00 = $frequencia[0]['frequencia'];
 $frequencia01 = $frequencia[1]['frequencia'];
 $frequencia02 = $frequencia[2]['frequencia'];
@@ -94,6 +96,21 @@ $mes = $frequencia[0]['mes'];
 
                     </div>
                     </div>
+                    <div class="col-12 col-md-6">
+                        <form class="form-header" action="#" method="GET">
+                            <input class="form-header" type="text" name="#" placeholder="pesquisar por dia" autocomplete="off" />
+                            <select name="anos_id" id="select" class="form-control">
+                                <option disabled selected>Filtro por MÊS</option>
+                                <?php
+                                    foreach ($mesFiltrar as $meses) { ?>
+                                <option value="<?= $meses['MES'] ?>"> <?= $meses['MES'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <button class="au-btn--submit" type="submit">
+                                <i class="zmdi zmdi-search"></i>
+                            </button>
+                        </form>
+                    </div>
                     <div class="table-responsive table--no-card m-b-30">
                     <table class="table table-borderless table-striped table-earning">
                         <thead>
@@ -107,6 +124,8 @@ $mes = $frequencia[0]['mes'];
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $contar = count($dados); ?>
+                                <p class="text text-right"> <?php echo $contar ?> Registros </p>
                             <?php foreach($dados as $dado){ ?>
                                 <tr>
                                 <td><?= $dado['RA']?></td>
@@ -121,9 +140,10 @@ $mes = $frequencia[0]['mes'];
                     </table>
                 </div>
             </div>
-            </div>
+            <button class="btn btn-primary">Voltar</button>
         </div>
     </div>
+</div>
 
 
 <?php require_once('rodape.php'); ?>

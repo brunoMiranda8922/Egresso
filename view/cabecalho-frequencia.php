@@ -47,7 +47,6 @@
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <div class="mess-dropdown js-dropdown">
-
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">

@@ -149,4 +149,16 @@ function listarDadosFrequencia($conexao, $id)
     }
     return $dados;
 }
+
+function listarMes($conexao)
+{
+    $meses = array();
+    $query = "SELECT DISTINCT MONTH(data_entrada) AS MES FROM frequencia";
+    $resultado = mysqli_query($conexao, $query);
+    while($mes = mysqli_fetch_assoc($resultado))
+    {
+        $meses[] = $mes;
+    }
+    return $meses;
+}
 ?>
