@@ -7,13 +7,13 @@ function usuarioEstaLogado() {
 
 
 function usuarioLogado() {
-    return $_SESSION["email"];
+    return $_SESSION['email'];
     
     
 }
 
 function usuarioLogadoId() {
-    return $_SESSION["id"];
+    return $_SESSION['id'];
     
     
 }

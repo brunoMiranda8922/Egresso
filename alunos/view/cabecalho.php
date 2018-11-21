@@ -84,10 +84,10 @@
                                 <i class="fas fa-form"></i>Formulario</a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-
-                                <a class="js-arrow" href="workshop.php">
-                                    <i class="fa fa-book"></i>Conteúdos</a>
+                            <a class="js-arrow" href="#"> </a>
+                                <i class="fa fa-book"></i>Conteúdos</a>
+                            <a class="js-arrow" href="workshop.php">
+                                    
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
 
                                 </ul>
@@ -138,6 +138,10 @@
                         <li>
                             <a href="enquete.php">
                                 <i class="fas fa-file"></i>Formulario</a>
+                        </li>
+                        <li>
+                            <a href="qrcode.php">
+                                <i class="fa fa-save"></i>QrCode</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="workshop.php">
@@ -246,7 +250,7 @@
 
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="logout.php">
+                                                <a href="../controller/logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

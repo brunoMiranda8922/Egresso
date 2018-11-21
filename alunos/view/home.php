@@ -1,25 +1,22 @@
-<?php require_once("cabecalho.php");
- 
-//equire_once("../model/verificar-usuario.php");
-//require_once("../model/mostrar-alerta.php");
-
+<?php
+require_once("cabecalho.php");
+require_once("../model/verificar-usuario.php");
+require_once("../model/mostrar-alerta.php");
 ?>
-        <!-- MAIN CONTENT-->
 
         <div class="main-content">
             <div class="section__content section__content--p30">
-
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="overview-wrap">
                                 <h2 class="title-1">Bem-Vindo </h2>
 
-                                <?php //usuarioEstaLogado()?>
+                                <?php usuarioEstaLogado()?>
 
                                     <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
                                         <span class="badge badge-pill badge-primary">Logado com</span>
-                                        <?php //usuarioLogado()  ?>
+                                        <?= usuarioLogado()?>
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -29,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php //mostrarAlerta('success') ?>
+                    <?= mostrarAlerta('success') ?>
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
 
@@ -176,7 +173,7 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">                   </h2>
+                                <h2 class="title-1 m-b-25"></h2>
                                 
                             </div>
 
