@@ -96,9 +96,8 @@ $mes = $frequencia[0]['mes'];
 
                     </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-4 col-md-2">
                         <form class="form-header" action="#" method="GET">
-                            <input class="form-header" type="text" name="#" placeholder="pesquisar por dia" autocomplete="off" />
                             <select name="anos_id" id="select" class="form-control">
                                 <option disabled selected>Filtro por MÊS</option>
                                 <?php
