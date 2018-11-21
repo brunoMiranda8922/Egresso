@@ -56,7 +56,7 @@ require_once("model/verificar-usuario.php");
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="login.php" method="POST">
+                            <form action="controller/login.php" method="POST">
                                 <div class="form-group">
                                     <label>E-mail</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="E-mail" autocomplete="off" required autofocus>
