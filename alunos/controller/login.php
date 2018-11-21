@@ -9,7 +9,6 @@ $usuario = buscarEgresso($conexao, $_POST['email'], $_POST['cpf']);
 
 if ($usuario == null){
     $_SESSION['danger'] = "Email ou Senha invalido";
-
     header("Location: ../index.php");
     exit();
 }
