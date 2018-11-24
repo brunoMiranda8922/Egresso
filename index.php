@@ -78,7 +78,7 @@ require_once("model/verifica-usuario.php");
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modal_erroBD" tabindex="-1" role="dialog">
+    <div class="modal fade" id="error" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -115,17 +115,14 @@ require_once("model/verifica-usuario.php");
     <script src="assets/vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="assets/vendor/select2/select2.min.js"></script>
 
-    <!-- Ponto de observação/Divída Técnica -->
     <script src="assets/js/main.js"></script>
-
-   <?php//require_once("js/main.php"); ?>
 
     <!-- Javascript para mostrar o modal -->
     <?php
         if ($exibirMensagem == "semConexao"){?>
         <script>
-        $(document).ready(function() {
-            $('#modal_erroBD').modal('show');
+        $(document).ready(() => {
+            $('#error').modal('show');
         });
         </script>
     <?php } ?>

@@ -1,3 +1,6 @@
+<?php
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -259,9 +262,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php echo date('d-m-Y'); ?>
+                            <?php echo strftime('%d-%m-%y-%A'); ?>
                             <br>
-                            <?php echo date('H:i:s'); ?>
+                            <?php echo strftime('%T'); ?>
                         </div>
                     </div>
                 </div>
