@@ -150,10 +150,10 @@ function listarDadosFrequencia($conexao, $id)
     return $dados;
 }
 
-function listarMes($conexao)
+function listarMes($conexao, $id)
 {
     $meses = array();
-    $query = "SELECT DISTINCT MONTH(data_entrada) AS MES FROM frequencia";
+    $query = "SELECT DISTINCT A.*, MONTH(data_entrada) AS MES FROM frequencia AS F LEFT JOIN alunos AS A ON F.id = A.id WHERE A.id = '{$id}' ";
     $resultado = mysqli_query($conexao, $query);
     while($mes = mysqli_fetch_assoc($resultado))
     {
