@@ -1,8 +1,11 @@
+<?php
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <!-- Required meta tags-->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
@@ -11,7 +14,7 @@
 
     <!-- Title Page-->
     <title>FATEC BARUERI</title>
-    <link rel="icon" href="#">
+    <link rel="icon" href="../images/alun.ico">
     <!-- Fontfaces CSS-->
     <link href="../../assets/css/font-face.css" rel="stylesheet" media="all">
     <link href="../../assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -36,17 +39,16 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="#" alt="CoolAdmin" />
+                            <img src="../images/barueri1.png" alt="FATEC" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
+                            <span class="hamburger-inner"></span>
                             </span>
                         </button>
                     </div>
@@ -63,18 +65,15 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-search"></i>Alunos</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-
                                 <li>
                                     <a href="feedback-aluno.php">Sua respostas</a>
                                 </li>
-
                             </ul>
                         </li>
                         <li>
                             <a href="graficos.php">
                                 <i class="fas fa-chart-bar"></i>Metricas</a>
                         </li>
-
                         <li>
                             <a href="contatar-aluno.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
@@ -87,23 +86,17 @@
                             <a class="js-arrow" href="#"> </a>
                                 <i class="fa fa-book"></i>Conteúdos</a>
                             <a class="js-arrow" href="workshop.php">
-                                    
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-
-                                </ul>
+                            </ul>
                         </li>
-
                     </ul>
                 </div>
             </nav>
         </header>
-        <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="#" alt="Cool Admin" />
+                    <img src="../images/barueri1.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -113,24 +106,19 @@
                             <a href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
                         </li>
-
                         <li class="active has-sub">
-
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-search"></i> Egresso</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-
                                 <li>
                                     <a href="feedback-aluno.php">Suas respostas</a>
                                 </li>
-
                             </ul>
                         </li>
                         <li>
                             <a href="graficos.php">
                                 <i class="fas fa-chart-bar"></i>Metricas</a>
                         </li>
-
                         <li>
                             <a href="contatar-aluno.php">
                                 <i class="zmdi zmdi-email-open"></i>Contato</a>
@@ -147,7 +135,6 @@
                             <a class="js-arrow" href="workshop.php">
                                 <i class="fa fa-book"></i>Conteúdos</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-
                             </ul>
                         </li>
                         <li>
@@ -159,56 +146,49 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-
                             <div class="header-button">
                                 <div class="noti-wrap">
-
                                     <div class="noti__item js-item-menu">
                                         <button class="btn btn-primary  btn-sm">Primeiro Acesso</button>
                                         <span class="quantity">*</span>
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
-                                                <p><strong>Primeiros passos no Sistema Egresso </strong></p>
+                                                <p><strong>Primeiros passos no Sistema</strong></p>
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="#" alt="Aluno" />
+                                                    <img src="../images/alun.ico" alt="Aluno" />
                                                 </div>
                                                 <div class="content">
-                                                    <p class="text bg-light text-dark">Você Egresso agora tem acesso o Sistema dos Ex-alunos</p>
+                                                    <p class="text bg-light text-dark">Você Aluno agora tem acesso o Sistema da Fatec</p>
                                                     <span><i class="fa fa-laptop"> </i> </i> <i class="fa fa-thumbs-up"></i> </span>
                                                 </div>
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="#" alt="Egresso" />
+                                                    <img src="../images/estudo.ico" alt="Egresso" />
                                                 </div>
                                                 <div class="content">
                                                     <p class="text bg-light text-dark">Com o seu acesso a nossa plataforma:
                                                         <ul>
-                                                            <li> Metricas em relação aos formados </li>
+                                                            <li> Metricas em relação a faculdade</li>
                                                             <li> Convites para palestras ou eventos </li>
                                                             <li> Possíveis oportunidades de empregos </li>
                                                             <li> Acesso a conteúdos exclusivos </li>
-
+                                                            <li> Acesso ao seu <code>QRCODE</code> de acesso </li>
                                                         </ul>
                                                         <span></span>
                                                     </p>
-
                                                 </div>
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="#" alt="Egresso" />
+                                                    <img src="../images/ok.ico" alt="Egresso" />
                                                 </div>
                                                 <div class="content">
                                                     <p class="text bg-light text-dark">Seu Feedback é muito importante para a FATEC</p>
@@ -220,12 +200,11 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="#" alt="FATEC BARUERI" />
+                                            <img src="../images/alun.ico" alt="FATEC BARUERI" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">FATEC BARUERI</a>
@@ -234,7 +213,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="#" alt="FATEC BARUERI" />
+                                                        <img src="../images/alun.ico" alt="FATEC BARUERI" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -242,12 +221,11 @@
                                                             <a href="#">FATEC BARUERI</a>
                                                         </h5>
                                                     <?php
-                                                        //require_once("banco/verificar-usuario.php"); ?>
-                                                        <span class="email"><?php// usuarioLogado()  ?></span>
+                                                        require_once("../model/verificar-usuario.php"); ?>
+                                                        <span class="email"><?= usuarioLogado()  ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
-
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="../controller/logout.php">
@@ -255,18 +233,12 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-                            <?php echo date('d-m-Y'); ?>
-                                <br>
-                                <?php echo date('H:i:s'); ?>
-
+                            <?= strftime('%d-%m-%y-%A'); ?>
+                            <br>
+                            <?= strftime('%R'); ?>
                         </div>
                     </div>
                 </div>
-
-            </header>
-
-            <!-- HEADER DESKTOP-->
+        </header>
