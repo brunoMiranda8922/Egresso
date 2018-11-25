@@ -4,8 +4,6 @@ require_once("../model/conexao.php");
 require_once("../model/mostrar-alerta.php");
 error_reporting("E_NOTICE");
 ?>
-    <!-- HEADER DESKTOP-->
-    <!-- MAIN CONTENT-->
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">

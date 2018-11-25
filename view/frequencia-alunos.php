@@ -12,7 +12,7 @@ $alunos = alunosVerFrequencia($conexao, $id);
 $frequencia = listarFrequenciaDia($conexao, $id);
 $dados = listarDadosFrequencia($conexao, $id);
 
-$mesFiltrar = listarMes($conexao);
+$mesFiltrar = listarMes($conexao, $id);
 
 $frequencia00 = $frequencia[0]['frequencia'];
 $frequencia01 = $frequencia[1]['frequencia'];
@@ -124,7 +124,7 @@ $mes = $frequencia[0]['mes'];
                         </thead>
                         <tbody>
                             <?php $contar = count($dados); ?>
-                                <p class="text text-right"> <?php echo $contar ?> Registros </p>
+                                <p class="text text-right"> <?= $contar ?> Registros </p>
                             <?php foreach($dados as $dado){ ?>
                                 <tr>
                                 <td><?= $dado['RA']?></td>

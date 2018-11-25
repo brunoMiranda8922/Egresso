@@ -20,22 +20,20 @@ $matricula_id = $_POST['matricula_id'];
 move_uploaded_file($temp, "/var/www/html/APP/projetoQrCode/assets/imagens/".$foto);
 
 ?>
-            <!-- HEADER DESKTOP-->
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Aluno</h2>
-                                </div>
-                            </div>
-                        </div>
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Aluno</h2>
                     </div>
-                    <div class="row m-t-20">
-                        <div class="col-sm-4 col-lg-12">
-                            <div class="overview-item overview-item--c4">
+                </div>
+            </div>
+        </div>
+        <div class="row m-t-20">
+            <div class="col-sm-4 col-lg-12">
+                <div class="overview-item overview-item--c4">
 <?php
     if (inserirAluno($conexao, $RA, $nome, $CPF, $email, $telefone, $foto, $curso_id, $ano_id, $semestre_id, $cidade_id, $matricula_id)) {
 ?>
