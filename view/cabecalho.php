@@ -262,9 +262,9 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                                     </div>
                                 </div>
                             </div>
-                            <?php echo strftime('%d-%m-%y-%A'); ?>
+                            <?= strftime('%d-%m-%y-%A'); ?>
                             <br>
-                            <?php echo strftime('%T'); ?>
+                            <?= strftime('%T'); ?>
                         </div>
                     </div>
                 </div>
