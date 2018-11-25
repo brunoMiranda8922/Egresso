@@ -50,7 +50,7 @@ error_reporting("E_NOTICE");
                                     $contar = count($respostas);
                                 ?>
                                     <p class="text text-left">
-                                    <?php echo $contar ?> Registros </p>
+                                    <?= $contar ?> Registros </p>
                                     <?php
                                         $avaliacao = [
                                             1 => "RUIM",
