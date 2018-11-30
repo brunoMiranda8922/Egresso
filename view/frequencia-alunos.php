@@ -8,10 +8,12 @@ error_reporting("E_NOTICE");
 
 
 $id = $_GET['id'];
+$RA = $_GET['RA'];
+
 $alunos = alunosVerFrequencia($conexao, $id);
 $frequencia = listarFrequenciaDia($conexao, $id);
 $dados = listarDadosFrequencia($conexao, $id);
-
+$RAs = listarTotalDias($conexao, $RA);
 $mesFiltrar = listarMes($conexao, $id);
 
 $frequencia00 = $frequencia[0]['frequencia'];
@@ -58,12 +60,34 @@ $mes = $frequencia[0]['mes'];
                         </div>
                         <div class="card-body">
                             <div class="mx-auto d-block">
-                                <canvas id="barChart"></canvas>
+                            <canvas id="percent-chart"></canvas>
                             </div>
                             <hr>
                         </div>
                     </div>
                 </div>
+            <div class="col-md-4">
+            <div class="table-responsive table-data">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th class="text-center">MES</th>
+                        <th class="text-center">DIA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($RAs as $RA){ ?>
+                        <tr>
+                        <td class="text-center"><?= $RA['MES']?></td>
+                        <td class="text-center"><?= $RA['DIA']?></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <?php $contar = count($RAs); ?>
+                <p class="text text-right"> <?= $contar ?> Registros </p>
+                </div>
+            </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -73,43 +97,30 @@ $mes = $frequencia[0]['mes'];
                         <div class="card-body">
                             <code><strong>Dia:</strong><?= $dia00 ?></code>
                             <div class="progress mb-2">
-                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia00 ?>%" aria-valuenow="<?= $frequencia00 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia00 ?>%</div>
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia00 == 0 ? 0 : $frequencia00 + 5 ?>%" aria-valuenow="<?= $frequencia00 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia00 ?>%</div>
                             </div>
                             <code><strong>Dia:</strong><?= $dia01 ?></code>
                             <div class="progress mb-2">
-                                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia01 ?>%" aria-valuenow="<?= $frequencia01 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia01 ?>%</div>
+                                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia01 == 0 ? 0 : $frequencia01 + 5?>%" aria-valuenow="<?= $frequencia01 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia01 ?>%</div>
                             </div>
                             <code><strong>Dia:</strong><?= $dia02 ?></code>
                             <div class="progress mb-2">
-                                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia02 ?>%" aria-valuenow="<?= $frequencia02 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia02 ?>%</div>
+                                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia02 == 0 ? 0 : $frequencia02 + 5 ?>%" aria-valuenow="<?= $frequencia02 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia02 ?>%</div>
                             </div>
                             <code><strong>Dia:</strong><?= $dia03 ?></code>
                             <div class="progress mb-2">
-                                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia03 ?>%" aria-valuenow="<?= $frequencia03 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia03 ?>%</div>
+                                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia03 == 0 ? 0 : $frequencia03 + 5; ?>%" aria-valuenow="<?= $frequencia03 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia03 ?>%</div>
                             </div>
                             <code><strong>Dia:</strong><?= $dia04 ?></code>
                             <div class="progress mb-2">
-                                <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia04 ?>%" aria-valuenow="<?= $frequencia04 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia04 ?>%</div>
+                                <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?= $frequencia04 == 0 ? 0 : $frequencia04 + 5 ?>%" aria-valuenow="<?= $frequencia04 ?>%" aria-valuemin="1" aria-valuemax="100"><?= $frequencia04 ?>%</div>
                             </div>
                             <hr>
                         </div>
 
                     </div>
                     </div>
-                    <div class="col-4 col-md-2">
-                        <form class="form-header" action="#" method="GET">
-                            <select name="anos_id" id="select" class="form-control">
-                                <option disabled selected>Filtro por MÊS</option>
-                                <?php
-                                    foreach ($mesFiltrar as $meses) { ?>
-                                <option value="<?= $meses['MES'] ?>"> <?= $meses['MES'] ?></option>
-                                <?php } ?>
-                            </select>
-                            <button class="au-btn--submit" type="submit">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
-                        </form>
-                    </div>
+                    <div class="table-responsive table-data">
                     <div class="table-responsive table--no-card m-b-30">
                     <table class="table table-borderless table-striped table-earning">
                         <thead>
@@ -138,11 +149,26 @@ $mes = $frequencia[0]['mes'];
                         </tbody>
                     </table>
                 </div>
-            </div>
+                </div>
             <button class="btn btn-primary">Voltar</button>
-        </div>
+        
+    </div>
     </div>
 </div>
 
+<div class="col-4 col-md-2">
+    <form class="form-header" action="#" method="GET">
+        <select name="anos_id" id="select" class="form-control">
+            <option disabled selected>Filtro por MÊS</option>
+            <?php
+                foreach ($mesFiltrar as $meses) { ?>
+            <option value="<?= $meses['MES'] ?>"> <?= $meses['MES'] ?></option>
+            <?php } ?>
+        </select>
+        <button class="au-btn--submit" type="submit">
+            <i class="zmdi zmdi-search"></i>
+        </button>
+    </form>
+</div>
 
 <?php require_once('rodape.php'); ?>

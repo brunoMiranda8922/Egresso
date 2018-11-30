@@ -334,14 +334,14 @@
     // Percent Chart
     var ctx = document.getElementById("percent-chart");
     if (ctx) {
-      ctx.height = 280;
+      ctx.height = 350;
       var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
           datasets: [
             {
-              label: "My First dataset",
-              data: [60, 40],
+              label: "My ",
+              data: [30, 20],
               backgroundColor: [
                 '#00b5e9',
                 '#fa4251'

@@ -2,7 +2,7 @@
 require_once("cabecalho.php");
 require_once("../model/conexao.php");
 require_once("../model/banco-curso.php");
-require_once("../model/banco-alunos.php");
+require_once("../model/banco-aluno.php");
 
 //$areas = listarArea($conexao);
 ?>

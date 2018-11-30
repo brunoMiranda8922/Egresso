@@ -161,4 +161,16 @@ function listarMes($conexao, $id)
     }
     return $meses;
 }
+
+function listarTotalDias($conexao, $RA)
+{
+    $meses = array();
+    $query = "SELECT DISTINCT RA, MONTH(data_entrada) AS MES, DAY(data_entrada) AS DIA FROM frequencia WHERE RA ='{$RA}' GROUP BY data_entrada ORDER BY MONTH(data_entrada) DESC, DAY(data_entrada) DESC";
+    $resultado = mysqli_query($conexao, $query);
+    while($row = mysqli_fetch_assoc($resultado))
+    {
+        $meses[] = $row;
+    }
+    return $meses;
+}
 ?>
