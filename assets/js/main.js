@@ -1,4 +1,3 @@
-
 (function ($) {
   // USE STRICT
   "use strict";
@@ -340,8 +339,8 @@
         data: {
           datasets: [
             {
-              label: "My ",
-              data: [30, 20],
+              label: "DIAS ",
+              data: [20, '<?= $dia ?>'],
               backgroundColor: [
                 '#00b5e9',
                 '#fa4251'
@@ -360,8 +359,8 @@
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Dias setivos no mês',
+            'Frequencia'
           ]
         },
         options: {
@@ -385,7 +384,6 @@
         }
       });
     }
-
   } catch (error) {
     console.log(error);
   }
