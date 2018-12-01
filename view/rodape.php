@@ -34,9 +34,9 @@
 </script>
 
 <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <!-- <script src="../assets/js/main.js"></script> -->
 
-    <?php //require_once("js/main.php"); ?>
+    <?php require_once("../assets/js/main.php"); ?>
 
 </body>
 </html>

@@ -9,12 +9,27 @@ error_reporting("E_NOTICE");
 
 $id = $_GET['id'];
 $RA = $_GET['RA'];
+?>
 
+<script>
+    $.ajax({
+        type: "GET",
+        data: { RA: <?= $RA ?> },
+        url: '../assets/js/main.php',
+        success: function(data) {
+            console.log("OK");
+        },
+        error: function(error){
+            console.log('ERRO');
+        }
+    });
+</script>
+<?php
 $alunos = alunosVerFrequencia($conexao, $id);
-$frequencia = listarFrequenciaDia($conexao, $id);
-$dados = listarDadosFrequencia($conexao, $id);
-$RAs = listarTotalDias($conexao, $RA);
-$mesFiltrar = listarMes($conexao, $id);
+$frequencia = perfilDiario($conexao, $id);
+$totais = perfilDiasNoMes($conexao, $RA);
+$dados = perfilDadosDoAluno($conexao, $id);
+$mesFiltrar = listarMes($conexao, $RA);
 
 $frequencia00 = $frequencia[0]['frequencia'];
 $frequencia01 = $frequencia[1]['frequencia'];
@@ -76,15 +91,15 @@ $mes = $frequencia[0]['mes'];
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($RAs as $RA){ ?>
+                    <?php foreach($totais as $total){ ?>
                         <tr>
-                        <td class="text-center"><?= $RA['MES']?></td>
-                        <td class="text-center"><?= $RA['DIA']?></td>
+                        <td class="text-center"><?= $total['MES']?></td>
+                        <td class="text-center"><?= $total['DIA']?></td>
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
-            <?php $contar = count($RAs); ?>
+            <?php $contar = count($totais); ?>
                 <p class="text text-right"> <?= $contar ?> Registros </p>
                 </div>
             </div>
@@ -117,9 +132,39 @@ $mes = $frequencia[0]['mes'];
                             </div>
                             <hr>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-user"></i>
+                            <strong class="card-title pl-2">Frequência do <?= $alunos['nome']?></strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="mx-auto d-block">
+                            <canvas id="team-chart"></canvas>
+                        </div>
+                        <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <form class="form-header" method="GET">
+                        <select name="mes" id="select" class="form-control">
+                            <option disabled selected>Filtro por MÊS</option>
+                        <?php
+                            foreach ($mesFiltrar as $meses) { ?>
+                            <option  value="<?= $meses['MES'] ?>"> <?= $meses['MES'] ?></option>
+                        <?php } ?>
+                        </select>
+                        <button class="au-btn--submit" type="submit">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
+                            <input type="hidden" name="id" value="<?= $id ?>">
+                            <input type="hidden" name="RA" value="<?= $RA ?>">
+                    </form>
+                    </div>
 
-                    </div>
-                    </div>
                     <div class="table-responsive table-data">
                     <div class="table-responsive table--no-card m-b-30">
                     <table class="table table-borderless table-striped table-earning">
@@ -154,21 +199,6 @@ $mes = $frequencia[0]['mes'];
         
     </div>
     </div>
-</div>
-
-<div class="col-4 col-md-2">
-    <form class="form-header" action="#" method="GET">
-        <select name="anos_id" id="select" class="form-control">
-            <option disabled selected>Filtro por MÊS</option>
-            <?php
-                foreach ($mesFiltrar as $meses) { ?>
-            <option value="<?= $meses['MES'] ?>"> <?= $meses['MES'] ?></option>
-            <?php } ?>
-        </select>
-        <button class="au-btn--submit" type="submit">
-            <i class="zmdi zmdi-search"></i>
-        </button>
-    </form>
 </div>
 
 <?php require_once('rodape.php'); ?>
