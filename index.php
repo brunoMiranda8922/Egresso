@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
+ini_set("display_errors", 1);
 require_once("model/conexao.php");
 require_once("model/buscar-usuario.php");
 require_once("model/mostrar-alerta.php");
@@ -116,8 +117,6 @@ require_once("model/verifica-usuario.php");
     <script src="assets/vendor/select2/select2.min.js"></script>
 
     <script src="assets/js/main.js"></script>
-
-    <!-- Javascript para mostrar o modal -->
     <?php
         if ($exibirMensagem == "semConexao"){?>
         <script>
