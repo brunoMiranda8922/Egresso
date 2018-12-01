@@ -19,7 +19,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     <link href="../assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <link href="../assets/vendor/bootstrap-4.1/bootstrap.min.1.css" rel="stylesheet" media="all">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <link href="../assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="../assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="../assets/vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -32,7 +32,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
 </head>
 
-<body class="animsition">
+<body>
     <div class="page-wrapper">
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
