@@ -2,6 +2,7 @@
 //ini_set('display_errors', true);
 $conexao = mysqli_connect("localhost", "bruno", "", "evasao");
 $RA = $_GET['RA'];
+
 function listarQuantidadeDiaNoMes($conexao, $RA)
 {
   $dataAtual = strftime('%m');
@@ -12,6 +13,54 @@ function listarQuantidadeDiaNoMes($conexao, $RA)
   $dias = $row->DIA;
   return $dias;
 }
+
+function totalCidades($conexao)
+{
+  $query = "SELECT cidade, COUNT(RA) AS quantidade FROM alunos AS A INNER JOIN cidades AS C ON A.cidades_id = C.id GROUP BY cidade";
+  $resultado = mysqli_query($conexao, $query);
+  while($row = mysqli_fetch_assoc($resultado))
+  {
+      $total[] = $row;
+  }
+
+  return $total;
+}
+
+function totalDeDiasNoMes($conexao, $RA)
+{
+  $query = "SELECT DISTINCT MONTH(data_entrada) AS MES, COUNT(DISTINCT DAY(data_entrada)) AS DIA FROM frequencia WHERE RA ='{$RA}' GROUP BY MONTH(data_entrada)";
+  $resultado = mysqli_query($conexao, $query);
+  while($row = mysqli_fetch_assoc($resultado))
+  {
+    $total[] = $row;
+  }
+  return $total;
+}
+
+$totalDiasNoMes = totalDeDiasNoMes($conexao, $RA);
+
+$mes01 = $totalDiasNoMes[0]['MES'];
+$dias01 = $totalDiasNoMes[0]['DIA'];
+
+$mes02 = $totalDiasNoMes[1]['MES'];
+$dias02 = $totalDiasNoMes[1]['DIA'];
+
+$total = totalCidades($conexao);
+
+$cidade01 = $total[0]['cidade'];
+$total01 = $total[0]['quantidade'];
+
+$cidade02 = $total[1]['cidade'];
+$total02 = $total[1]['quantidade'];
+
+$cidade03 = $total[2]['cidade'];
+$total03 = $total[2]['quantidade'];
+
+$cidade04 = $total[3]['cidade'];
+$total04 = $total[3]['quantidade'];
+
+$cidade05 = $total[4]['cidade'];
+$total05 = $total[4]['quantidade'];
 
 $dia = listarQuantidadeDiaNoMes($conexao, $RA);
 
@@ -809,14 +858,14 @@ $dia = listarQuantidadeDiaNoMes($conexao, $RA);
     if (ctx) {
       ctx.height = 215;
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'pie',
         data: {
-          labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+          labels: [<?= $mes01 ?>, <?= $mes02 ?>],
           type: 'line',
           defaultFontFamily: 'Poppins',
           datasets: [{
-            data: [1, 2, 3, 4, 12, 10, 12, 10,12, 10, 15, 7],
-            label: "Mês",
+            data: [<?= $dias01 ?>, <?= $dias02 ?>],
+            label: "Quantidade de dias no mês",
             backgroundColor: 'rgba(0,103,255,.15)',
             borderColor: 'rgba(0,103,255,0.5)',
             borderWidth: 3.5,
@@ -1080,29 +1129,34 @@ $dia = listarQuantidadeDiaNoMes($conexao, $RA);
     if (ctx) {
       ctx.height = 150;
       var myChart = new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
           datasets: [{
-            data: [45, 25, 20, 10],
+            data: [<?= $total01 ?>, <?= $total02 ?>, <?= $total03 ?>, <?= $total04 ?>, <?= $total05 ?>],
             backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255,0,0,0.5)",
+              "rgba(0,255,0,0.5)",
+              "rgba(255, 0, 0, 0.8)",
+              "rgba(255, 165, 0, 0.8)",
+              "rgba(0, 0, 255, 0.8)",
+              "rgba(28, 179, 125,0.8)",
             ],
             hoverBackgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(255,0,0,0.3)",
+              "rgba(0,255,0,0.3)",
+              "rgba(255, 0, 0, 0.3)",
+              "rgba(255, 165, 0, 0.3)",
+              "rgba(0, 0, 255, 0.3)",
+              "rgba(28, 179, 125,0.3)",
             ]
 
           }],
           labels: [
-            "Green",
-            "Green",
-            "Green",
-            "Green"
+            "<?= $cidade01 ?>",
+            "<?= $cidade02 ?>",
+            "<?= $cidade03 ?>",
+            "<?= $cidade04 ?>",
+            "<?= $cidade05 ?>"
           ]
         },
         options: {
