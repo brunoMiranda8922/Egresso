@@ -10,7 +10,7 @@ error_reporting("E_NOTICE");
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <h2 class="title-1">Egressos</h2>                                    
+                        <h2 class="title-1">FATEC ADM EVASÃO</h2>
                             <?php 
                                 require_once("../model/verifica-usuario.php");
                                 require_once("../model/mostrar-alerta.php");
