@@ -28,99 +28,58 @@ error_reporting("E_NOTICE");
                 </div>
         <?php mostrarAlerta('success') ?>
         <div class="row m-t-25">
-            <div class="col-sm-6 col-lg-2">
-                <div class="overview-item overview-item--c3">
-                    <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div>
-                            <div class="text">
-                                <h3>Eventos</h3>
-                                    <span></span>
-                            </div>
-                        </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart1"></canvas>
-                        </div>
-                    </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/ds.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de Eventos</h4>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-2">
-                <div class="overview-item overview-item--c4">
-                    <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div>
-                            <div class="text">
-                                <h3>Comex</h3>
-                                    <span></span>
-                            </div>
-                        </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart2"></canvas>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/gti.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de GTI</h4>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-2">
-                <div class="overview-item overview-item--c1">
-                    <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div>
-                            <div class="text">
-                                <h3>GTI</h3>
-                                    <span></span>
-                            </div>
-                        </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart3"></canvas>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/t.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de Transporte</h4>
                 </div>
             </div>
-            <div class="col-sm-2 col-lg-2">
-                <div class="overview-item overview-item--c3">
-                    <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div>
-                            <div class="text">
-                                <h3>Transporte</h3>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart4"></canvas>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/ds.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de Design</h4>
                 </div>
             </div>
-            <div class="col-sm-2 col-lg-2">
-                <div class="overview-item overview-item--c2">
-                    <div class="overview__inner">
-                        <div class="overview-box clearfix">
-                            <div class="icon">
-                                <i class="zmdi zmdi-account-o"></i>
-                            </div>
-                            <div class="text">
-                                <h3>Desing</h3>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="overview-chart">
-                            <canvas id="widgetChart5"></canvas>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/lg.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de Logistica</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="../images/rh.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Curso de Gestão em RH</h4>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5">
+        <div class="col-md-6">
+            <div class="card">
+            
                 <div class="au-card recent-report">
                     <div class="au-card-inner">
                         <h3 class="title-2">Recomendariam</h3>
@@ -145,6 +104,8 @@ error_reporting("E_NOTICE");
             </div>
         </div>
     </div>
+    </div>
+    
     <div class="col-md-6">
         <div class="au-card chart-percent-card">
             <div class="au-card-inner">
@@ -154,17 +115,17 @@ error_reporting("E_NOTICE");
                         <div class="chart-note-wrap">
                             <div class="chart-note mr-0 d-block">
                                 <span class="dot dot--blue"></span>
-                                <span>Que Trabalham</span>
+                                <span>Alunos Ativo</span>
                             </div>
                             <div class="chart-note mr-0 d-block">
                                 <span class="dot dot--red"></span>
-                                <span>Que Não Trabalham</span>
+                                <span>Alunos Evadidos</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-10">
                         <div class="percent-chart">
-                            <canvas id="pieChart"></canvas>
+                            <canvas id="pieChart1"></canvas>
                         </div>
                     </div>
                 </div>
