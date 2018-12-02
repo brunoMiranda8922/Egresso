@@ -19,14 +19,6 @@ error_reporting("E_NOTICE");
                     <div class="au-card m-b-30">
                         <div class="au-card-inner">
                             <h3 class="title-2 m-b-40">Média dos alunos por ano</h3>
-                            <canvas id="team-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="au-card m-b-30">
-                        <div class="au-card-inner">
-                            <h3 class="title-2 m-b-40">Alunos</h3>
                             <canvas id="barChart"></canvas>
                         </div>
                     </div>
