@@ -137,7 +137,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                             
                         </li>
                         <li>
-                            <a href="logout.php">
+                            <a href="../controller/logout.php">
                                 <i class="fa fa-close"></i>Sair</a>
                         </li>
                         </li>

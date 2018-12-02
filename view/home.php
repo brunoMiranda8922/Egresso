@@ -28,16 +28,16 @@ error_reporting("E_NOTICE");
                 </div>
         <?php mostrarAlerta('success') ?>
         <div class="row m-t-25">
-            <div class="col-sm-6 col-lg-3">
-                <div class="overview-item overview-item--c1">
+            <div class="col-sm-6 col-lg-2">
+                <div class="overview-item overview-item--c3">
                     <div class="overview__inner">
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
                             </div>
                             <div class="text">
-                                <h2>Eventos</h2>
-                                    <span>Quantidade de alunos</span>
+                                <h3>Eventos</h3>
+                                    <span></span>
                             </div>
                         </div>
                         <div class="overview-chart">
@@ -46,16 +46,16 @@ error_reporting("E_NOTICE");
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="overview-item overview-item--c2">
+            <div class="col-sm-6 col-lg-2">
+                <div class="overview-item overview-item--c4">
                     <div class="overview__inner">
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
                             </div>
                             <div class="text">
-                                <h2>Comex</h2>
-                                    <span>Quantidade de alunos</span>
+                                <h3>Comex</h3>
+                                    <span></span>
                             </div>
                         </div>
                         <div class="overview-chart">
@@ -64,16 +64,16 @@ error_reporting("E_NOTICE");
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="overview-item overview-item--c3">
+            <div class="col-sm-6 col-lg-2">
+                <div class="overview-item overview-item--c1">
                     <div class="overview__inner">
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
                             </div>
                             <div class="text">
-                                <h2>GTI</h2>
-                                    <span>Quantidade de alunos</span>
+                                <h3>GTI</h3>
+                                    <span></span>
                             </div>
                         </div>
                         <div class="overview-chart">
@@ -82,20 +82,38 @@ error_reporting("E_NOTICE");
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="overview-item overview-item--c4">
+            <div class="col-sm-2 col-lg-2">
+                <div class="overview-item overview-item--c3">
                     <div class="overview__inner">
                         <div class="overview-box clearfix">
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
                             </div>
                             <div class="text">
-                                <h2>Transporte</h2>
-                                <span>Quantidade de alunos</span>
+                                <h3>Transporte</h3>
+                                <span></span>
                             </div>
                         </div>
                         <div class="overview-chart">
                             <canvas id="widgetChart4"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-lg-2">
+                <div class="overview-item overview-item--c2">
+                    <div class="overview__inner">
+                        <div class="overview-box clearfix">
+                            <div class="icon">
+                                <i class="zmdi zmdi-account-o"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Desing</h3>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="overview-chart">
+                            <canvas id="widgetChart5"></canvas>
                         </div>
                     </div>
                 </div>
@@ -122,12 +140,12 @@ error_reporting("E_NOTICE");
                     </div>
                 </div>
                 <div class="recent-report__chart">
-                    <canvas id="percent-chart33"></canvas>
+                    <canvas id="percent-chart"></canvas> 
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="au-card chart-percent-card">
             <div class="au-card-inner">
                 <h3 class="title-2 tm-b-5">Alunos</h3>
@@ -144,9 +162,9 @@ error_reporting("E_NOTICE");
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-10">
                         <div class="percent-chart">
-                            <canvas id="percent-chart"></canvas>
+                            <canvas id="pieChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -156,8 +174,7 @@ error_reporting("E_NOTICE");
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="title-1 m-b-25">Feedback dos Egressos
-                                </h2>
+            <h2 class="title-1 m-b-25">Feedback dos Alunos</h2>
             <div class="table-responsive table--no-card m-b-40">
                 <table class="table table-borderless table-striped table-earning">
                     <thead>

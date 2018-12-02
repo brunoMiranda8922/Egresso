@@ -129,7 +129,8 @@ h2 {
 }
 
 h3 {
-    font-size: 24px;
+    color: #e0e0e0;
+    font-size: 16px;
 }
 
 h4 {
@@ -3203,7 +3204,7 @@ section {
 
 .overview-box .text {
     font-weight: 300;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .overview-box .text h2 {

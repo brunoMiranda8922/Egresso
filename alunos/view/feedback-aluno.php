@@ -27,7 +27,6 @@ require_once("../model/questinario.php");
                         <th class="text-center">NOME</th>
                         <th class="text-center">TRABALHA</th>
                         <th class="text-center">EMPRESA</th>
-                        <th class="text-center">AREA</th>
                         <th class="text-center">CARGO</th>
                         <th class="text-center">DATA</th>
                         <th class="text-center"></th>
@@ -49,7 +48,6 @@ require_once("../model/questinario.php");
                         <td class="process text-center"><?= $resposta['nome'] ?></td>
                         <td class="process text-center"><?= $simOuNao[$resposta['trabalha']] ?></td>
                         <td class="process text-center"><?= $resposta['empresa'] == 'NULL' ? "-" : $resposta['empresa'] ?></td>
-                        <td class="process text-center"><?= $resposta['area'] == 'NULL' ? "-" : $resposta['area']?></td>
                         <td class="process text-center"><?= $resposta['cargo'] == 'NULL' ? "-" : $resposta['cargo'] ?></td>
                         <td class="process text-center"><?= $resposta['date'] ?></td>
                         <td><a class="btn btn-success" href="atualizar-enquete.php?id=<?= $resposta['id']?>">Alterar</a></td>

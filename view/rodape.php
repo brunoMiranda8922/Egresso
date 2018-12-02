@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="copyright">
-            <p>GTI © 2018 - TUDO CERTO E NADA RESOLVIDO
+            <p>GTI © 2018 - FATEC BARUERI. INOVATECH
                 <a href="#"></a>!</p>
         </div>
     </div>

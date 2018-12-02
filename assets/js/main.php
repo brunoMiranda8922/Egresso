@@ -76,7 +76,7 @@ $dia = listarQuantidadeDiaNoMes($conexao, $RA);
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -142,12 +142,82 @@ $dia = listarQuantidadeDiaNoMes($conexao, $RA);
     //WidgetChart 2
     var ctx = document.getElementById("widgetChart2");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
           labels: ['January', 'February', 'March', 'April', 'May', 'June'],
           type: 'line',
+          datasets: [{
+            data: [1, 18, 9, 17, 34, 22],
+            label: 'Dataset',
+            backgroundColor: 'transparent',
+            borderColor: 'rgba(255,255,255,.55)',
+          },]
+        },
+        options: {
+
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            titleFontSize: 12,
+            titleFontColor: '#000',
+            bodyFontColor: '#000',
+            backgroundColor: '#fff',
+            titleFontFamily: 'Montserrat',
+            bodyFontFamily: 'Montserrat',
+            cornerRadius: 3,
+            intersect: false,
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                color: 'transparent',
+                zeroLineColor: 'transparent'
+              },
+              ticks: {
+                fontSize: 2,
+                fontColor: 'transparent'
+              }
+            }],
+            yAxes: [{
+              display: false,
+              ticks: {
+                display: false,
+              }
+            }]
+          },
+          title: {
+            display: false,
+          },
+          elements: {
+            line: {
+              tension: 0.00001,
+              borderWidth: 1
+            },
+            point: {
+              radius: 4,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
+          }
+        }
+      });
+    }
+
+    //wIdgetChart5
+    var ctx = document.getElementById("widgetChart5");
+    if (ctx) {
+      ctx.height = 100;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          type: 'bar',
           datasets: [{
             data: [1, 18, 9, 17, 34, 22],
             label: 'Dataset',

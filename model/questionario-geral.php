@@ -3,7 +3,7 @@
 function listarRespostasGeral($conexao) 
 {
     $respostas = array();
-    $query = "SELECT A.RA, A.nome, AR.area AS area, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id LEFT JOIN areas AS AR ON Q.areas = AR.area GROUP BY Q.id";
+    $query = "SELECT A.RA, A.nome, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id GROUP BY Q.id ORDER BY Q.id DESC"; 
     $resultado = mysqli_query($conexao, $query);
     while ($row = mysqli_fetch_assoc($resultado))
     {
@@ -24,7 +24,7 @@ function listarTrabalha($conexao)
     $sim = $_GET['trabalha'];
     $indiferente = $_GET['trabalha'];
     
-    $query = "SELECT A.RA, A.nome, AR.area AS area, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id LEFT JOIN areas AS AR ON Q.areas = AR.area
+    $query = "SELECT A.RA, A.nome, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id
                 WHERE Q.trabalha = {$nao} OR Q.trabalha = {$sim} OR Q.trabalha = {$indiferente} GROUP BY Q.id  ORDER BY Q.id DESC ";
     $resultado = mysqli_query($conexao, $query);
     while ($aluno = mysqli_fetch_assoc($resultado)) {
@@ -45,7 +45,7 @@ function paginarTrabalha($conexao)
     $sim = $_GET['trabalha'];
     $indiferente = $_GET['trabalha'];
     
-    $query = "SELECT A.RA, A.nome, AR.area AS area, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id LEFT JOIN areas AS AR ON Q.areas = AR.area
+    $query = "SELECT A.RA, A.nome, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id
                 WHERE Q.trabalha = {$nao} OR Q.trabalha = {$sim} OR Q.trabalha = {$indiferente} GROUP BY Q.id  ORDER BY Q.id DESC ";
     $resultado = mysqli_query($conexao, $query);
     $resultado_aluno = mysqli_query($conexao, $query);

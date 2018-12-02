@@ -17,7 +17,7 @@ error_reporting("E_NOTICE");
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="title-5 m-b-35"><i class="fas fa-users"></i> Consultar Egressos</h3>
+                        <h3 class="title-5 m-b-35"><i class="fas fa-users"></i> Consultar Alunos</h3>
                     </div>
                 </div>
             </div>

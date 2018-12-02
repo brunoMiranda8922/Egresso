@@ -12,12 +12,6 @@ if (!isset($_POST['empresa']))
 } else {
     $empresa = $_POST['empresa'];
 }
-if (!isset($_POST['area']))
-{
-    $area = 'NULL';
-} else {
-    $area = $_POST['area'];
-}
 
 if (!isset($_POST['cargo']))
 {
@@ -56,7 +50,7 @@ $id = $_SESSION['id'];
                     <div class="overview-item overview-item--c4">
 <?php
 
-if (cadastrarQuestionario($conexao, $trabalha, $empresa, $cargo, $area, $formacao, $cronograma, $professores, $infra, $recomendaria, $sexo, $estagio, $ausencia, $id))
+if (cadastrarQuestionario($conexao, $trabalha, $empresa, $cargo, $formacao, $cronograma, $professores, $infra, $recomendaria, $sexo, $estagio, $ausencia, $id))
 { ?>
     <div class="alert text-dark text-center"> Questionario Enviado com sucesso. Muito obrigado.</div>
 <?php } else {

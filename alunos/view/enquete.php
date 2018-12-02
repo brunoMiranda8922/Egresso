@@ -3,8 +3,6 @@ require_once("cabecalho.php");
 require_once("../model/conexao.php");
 require_once("../model/banco-curso.php");
 require_once("../model/banco-aluno.php");
-
-$areas = listarArea($conexao);
 ?>
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -52,27 +50,10 @@ $areas = listarArea($conexao);
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3">
-                                    <label for="select" class=" form-control-label">Em qual área?</label>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <select name="area" id="text2" class="form-control" required>
-                                        <option selected disabled>Selecione uma opção</option>
-                                        <?php  foreach($areas as $area){
-                                        ?>
-                                        <option value="<?= $area['areas'] ?> ">
-                                            <?= $area['area'] ?>
-                                        </option>
-                                        <?php } ?>
-                                    </select>
-                                    <small class="help-block form-text">selecione somente se já estiver trabalhando</small>
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col col-md-3">
                                     <label for="password-input" class=" form-control-label">Qual o cargo que ocupa?</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <input type="text" id ="text3" name="cargo"  placeholder="Titulo do Cargo" class="form-control" required>
+                                    <input type="text" id ="text2" name="cargo"  placeholder="Titulo do Cargo" class="form-control" required>
                                     <small class="help-block form-text">preencha somente se já estiver trabalhando</small>
                                 </div>
                                 </div>
@@ -80,14 +61,12 @@ $areas = listarArea($conexao);
                                     function disable() {
                                         document.getElementById("text1").disabled = true;
                                         document.getElementById("text2").disabled = true;
-                                        document.getElementById("text3").disabled = true;
 
                                     }
 
                                     function undisable() {
                                         document.getElementById("text1").disabled = false;
                                         document.getElementById("text2").disabled = false;
-                                        document.getElementById("text3").disabled = false;
 
                                     }
                                     </script>

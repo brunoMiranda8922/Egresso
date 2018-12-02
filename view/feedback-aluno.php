@@ -43,7 +43,6 @@ mostrarAlerta("success");
                                 <th class="text-center">NOME</th>
                                 <th class="text-center">TRABALHA</th>
                                 <th class="text-center">EMPRESA</th>
-                                <th class="text-center">AREA</th>
                                 <th class="text-center">CARGO</th>
                                 <th class="text-center">DATA</th>
                             </tr>
@@ -75,9 +74,6 @@ mostrarAlerta("success");
                                 </td>
                                 <td class="process text-center">
                                     <?= $resposta['empresa'] == 'NULL' ? "-" : $resposta['empresa'] ?>
-                                </td>
-                                <td class="process text-center">
-                                    <?= $resposta['area'] == 'NULL' ? "-" : $resposta['area']?>
                                 </td>
                                 <td class="process text-center">
                                     <?= $resposta['cargo'] == 'NULL' ? "-" : $resposta['cargo'] ?>
