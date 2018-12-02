@@ -63,10 +63,10 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                                     </div>
                                 </div>
                             </div>
-                            <?php echo strftime('%d-%m-%y-%A'); ?>
-                            <br>
-                            <?php echo strftime('%T'); ?>
+                                <?= strftime('%d-%m-%y-%A');?>
+                                <?= strftime('%T');?>
+                                <a href="listagem-alunos.php" class="btn btn-primary"><strong>VOLTAR</strong></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </header>
+                </header>
