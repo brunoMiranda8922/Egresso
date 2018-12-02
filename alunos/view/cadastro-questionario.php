@@ -29,36 +29,34 @@ if (!isset($_POST['cargo']))
 $formacao = $_POST['formacao'];
 $cronograma = $_POST['cronograma'];
 $professores = $_POST['professores'];
-$intra = $_POST['infra'];
+$infra = $_POST['infra'];
 $recomendaria = $_POST['recomendaria'];
 $sexo = $_POST['sexo'];
 $estagio = $_POST['estagio'];
-$semestre = $_POST['semestre'];
+$ausencia = $_POST['ausencia'];
 $id = $_SESSION['id'];
-//$nome = $_SESSION['email'];
-//$date = date("'Y-m-d'");
 
 ?>
 <?php require_once('cabecalho.php'); ?>
 <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Egressos</h2>
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">Egressos</h2>
 
-                                </div>
+                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-t-20">
-                            <div class="col-sm-4 col-lg-12">
-                                <div class="overview-item overview-item--c4">
+                    </div>
+                </div>
+            </div>
+            <div class="row m-t-20">
+                <div class="col-sm-4 col-lg-12">
+                    <div class="overview-item overview-item--c4">
 <?php
 
-if (cadastrarQuestionario($conexao, $trabalha, $empresa, $area, $cargo, $formacao, $cronograma, $professores, $intra, $recomendaria, $sexo, $estagio, $semestre, $id))
+if (cadastrarQuestionario($conexao, $trabalha, $empresa, $cargo, $area, $formacao, $cronograma, $professores, $infra, $recomendaria, $sexo, $estagio, $ausencia, $id))
 { ?>
     <div class="alert text-dark text-center"> Questionario Enviado com sucesso. Muito obrigado.</div>
 <?php } else {

@@ -4,7 +4,7 @@ require_once("../model/conexao.php");
 require_once("../model/banco-curso.php");
 require_once("../model/banco-aluno.php");
 
-//$areas = listarArea($conexao);
+$areas = listarArea($conexao);
 ?>
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -59,8 +59,8 @@ require_once("../model/banco-aluno.php");
                                         <option selected disabled>Selecione uma opção</option>
                                         <?php  foreach($areas as $area){
                                         ?>
-                                        <option value="<?= $area['area_curso_id'] ?> ">
-                                            <?= $area['nome'] ?>
+                                        <option value="<?= $area['areas'] ?> ">
+                                            <?= $area['area'] ?>
                                         </option>
                                         <?php } ?>
                                     </select>
@@ -310,10 +310,10 @@ require_once("../model/banco-aluno.php");
                                 <div class="col col-md-9">
                                     <div class="form-check-inline form-check">
                                         <label  class="form-check-label ">
-                                        <small class="help-block form-text"> Sim <br /></small><input type="radio"  name="semestre" value="6" class="form-check-input" required>
+                                        <small class="help-block form-text"> Sim <br /></small><input type="radio"  name="ausencia" value="1" class="form-check-input" required>
                                         </label>
                                         <label  class="form-check-label ">
-                                        <small class="help-block form-text"> Não </small><input type="radio"  name="semestre" value="7" class="form-check-input">
+                                        <small class="help-block form-text"> Não </small><input type="radio"  name="ausencia" value="0" class="form-check-input">
                                     </div>
                                 </div>
                             </div>

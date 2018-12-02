@@ -1,10 +1,8 @@
 <?php
 require_once("cabecalho.php");
 require_once("../model/conexao.php");
-require_once("../model/banco-curso.php");
-require_once("../model/mostrar-alerta.php");
-require_once("../model/funcoes.2.php");
-error_reporting("E_NOTICE");
+require_once("../model/questionario-geral.php");
+//error_reporting("E_NOTICE");
 
 mostrarAlerta("success");
 ?>
@@ -18,7 +16,7 @@ mostrarAlerta("success");
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Feedback dos Egressos</h3>
+                    <h3 class="title-5 m-b-35">Feedback do Aluno</h3>
                 </div>
             </div>
         </div>

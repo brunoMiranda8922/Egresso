@@ -37,7 +37,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
 </head>
 
-<body class="animsition">
+<body>
     <div class="page-wrapper">
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
@@ -72,7 +72,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                         </li>
                         <li>
                             <a href="graficos.php">
-                                <i class="fas fa-chart-bar"></i>Metricas</a>
+                                <i class="fas fa-chart-bar"></i>Frequência</a>
                         </li>
                         <li>
                             <a href="contatar-aluno.php">
@@ -117,7 +117,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                         </li>
                         <li>
                             <a href="graficos.php">
-                                <i class="fas fa-chart-bar"></i>Metricas</a>
+                                <i class="fas fa-chart-bar"></i>Frequência</a>
                         </li>
                         <li>
                             <a href="contatar-aluno.php">
@@ -131,11 +131,10 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                             <a href="qrcode.php">
                                 <i class="fa fa-save"></i>QrCode</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="workshop.php">
+                        <li>
+                            <a href="workshop.php">
                                 <i class="fa fa-book"></i>Conteúdos</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            </ul>
+                            
                         </li>
                         <li>
                             <a href="logout.php">
@@ -176,7 +175,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                                                 <div class="content">
                                                     <p class="text bg-light text-dark">Com o seu acesso a nossa plataforma:
                                                         <ul>
-                                                            <li> Metricas em relação a faculdade</li>
+                                                            <li> Frequência em relação a faculdade</li>
                                                             <li> Convites para palestras ou eventos </li>
                                                             <li> Possíveis oportunidades de empregos </li>
                                                             <li> Acesso a conteúdos exclusivos </li>
@@ -237,7 +236,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                             </div>
                             <?= strftime('%d-%m-%y-%A'); ?>
                             <br>
-                            <?= strftime('%R'); ?>
+                            <?= strftime('%T'); ?>
                         </div>
                     </div>
                 </div>

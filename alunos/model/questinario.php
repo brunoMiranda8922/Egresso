@@ -1,11 +1,11 @@
-<?php require_once("banco/conexao.php");
+<?php 
 require_once("verificar-usuario.php");
 
 
-function cadastrarQuestionario($conexao, $trabalha, $empresa, $area, $cargo, $formacao, $cronograma, $professores, $intra, $recomendaria, $sexo, $estagio, $semestre, $id) 
+function cadastrarQuestionario($conexao, $trabalha, $empresa, $cargo, $area, $formacao, $cronograma, $professores, $infra, $recomendaria, $sexo, $estagio, $ausencia, $id) 
 {
-    $query = "insert into formulario_aluno(trabalha, empresa, area_trabalho, cargo, formacao, cronograma, professores, infraestrutura, recomendaria, sexo, estagio, semestre, egressos_id) 
-                values({$trabalha}, '{$empresa}', $area, '{$cargo}', '{$formacao}', '{$cronograma}', '{$professores}', '{$intra}', '{$recomendaria}', '{$sexo}', {$estagio}, '{$semestre}', {$id})";
+    $query = "INSERT INTO questionario(trabalha, empresa, cargo, areas, formacao, cronograma, professores, infraestrutura, recomendaria, sexo, estagio, ausencia, alunos_id) 
+                VALUES({$trabalha}, '{$empresa}', '{$cargo}', $area, '{$formacao}', '{$cronograma}', '{$professores}', '{$infra}', '{$recomendaria}', '{$sexo}', {$estagio}, '{$ausencia}', {$id})";
     return mysqli_query($conexao, $query);   
 }
 
@@ -13,8 +13,8 @@ function listarRespostas($conexao)
 {
     $id = $_SESSION['id'];
     $respostas = array();
-    $query = "SELECT e.RA,e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id
-                WHERE f.egressos_id = $id GROUP BY f.id";
+    $query = "SELECT A.RA, A.nome, AR.area AS area, Q.* FROM questionario AS Q INNER JOIN alunos AS A ON A.id  = Q.alunos_id LEFT JOIN areas AS AR ON Q.areas = AR.area
+                WHERE Q.alunos_id = $id GROUP BY Q.id";
     $resultado = mysqli_query($conexao, $query);
     while ($row = mysqli_fetch_assoc($resultado))
     {
@@ -22,41 +22,10 @@ function listarRespostas($conexao)
     }
     return $respostas;
 }
-function paginarTrabalha($conexao)
-{
-    $alunos          = array();
-    $pagina          = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-    if(!isset($_GET['trabalha']) || empty($_GET['trabalha'])) {
-        $_GET['trabalha'] = '1||trabalha=0';
-    }
-    
-    $nao = $_GET['trabalha'];
-    $sim = $_GET['trabalha'];
-    $indiferente = $_GET['trabalha'];
-    $id = $_SESSION['id'];
-    
-    $query = "SELECT e.RA, e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id
-            WHERE (f.trabalha = $nao OR f.trabalha = $sim OR f.trabalha LIKE '$indiferente') AND f.egressos_id = $id GROUP BY f.id";
-    $resultado = mysqli_query($conexao, $query);
-    
-    $resultado_aluno = mysqli_query($conexao, $query);
-    
-    $total_alunos = mysqli_num_rows($resultado_aluno);
-    
-    $quantidade_pagina = 6;
-    
-    $numero_pagina = ceil($total_alunos / $quantidade_pagina);
-    
-    return $numero_pagina;
-    
-}
-
-
 
 function mudarRespostas($conexao) 
 {
     $id = $_SESSION['id'];
-   
     $query = "SELECT * FROM formulario_aluno WHERE egressos_id = {$id}";
     $resultado = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($resultado);

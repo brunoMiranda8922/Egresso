@@ -28,94 +28,9 @@ require_once("../model/mostrar-alerta.php");
                     </div>
                     <?= mostrarAlerta('success') ?>
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>Eventos</h2>
-                                                <span>Quantidade de alunos</span>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="overview-chart">
-
-                                            <canvas id="widgetChart1"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>Comex</h2>
-                                                <span>Quantidade de alunos</span>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="overview-chart">
-
-                                            <canvas id="widgetChart2"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>GTI</h2>
-                                                <span>Quantidade de alunos</span>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="overview-chart">
-
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>Transporte</h2>
-                                                <span>Quantidade de alunos</span>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="overview-chart">
-
-                                            <canvas id="widgetChart4"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-6">
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">Alunos</h3>
@@ -138,7 +53,7 @@ require_once("../model/mostrar-alerta.php");
                                             </div>
                                         </div>
                                         <div class="recent-report__chart">
-                                            <canvas id="percent-chart33"></canvas>
+                                            <canvas id="team-chart"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -152,11 +67,11 @@ require_once("../model/mostrar-alerta.php");
                                                 <div class="chart-note-wrap">
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--blue"></span>
-                                                        <span>Que Trabalham</span>
+                                                        <span>Dias ok</span>
                                                     </div>
                                                     <div class="chart-note mr-0 d-block">
                                                         <span class="dot dot--red"></span>
-                                                        <span>Que Não Trabalham</span>
+                                                        <span>Dias não</span>
                                                     </div>
                                                 </div>
                                             </div>

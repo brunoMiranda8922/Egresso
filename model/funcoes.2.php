@@ -1,77 +1,6 @@
 <?php
 require_once("conexao.php");
 
-function listarRespostas($conexao) 
-{
-    $respostas = array();
-    $query = "SELECT e.RA, e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id 
-                GROUP BY f.id ORDER BY f.id DESC LIMIT 6";
-    $resultado = mysqli_query($conexao, $query);
-    while ($row = mysqli_fetch_assoc($resultado))
-    {
-        $respostas[] = $row;
-    }
-    return $respostas;
-}
-//SELECT RA, nome, Q.* FROM questionario AS Q INNER JOIN alunos ON e.id  = Q.alunos_id GROUP BY Q.id ORDER BY Q.id DESC LIMIT 6
-function listarTrabalha($conexao) 
-{
-    $respostas = array();
-    $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-    if(!isset($_GET['trabalha']) || empty($_GET['trabalha'])) {
-        $_GET['trabalha'] = '1||trabalha=0';
-    }
-    
-    $nao = $_GET['trabalha'];
-    $sim = $_GET['trabalha'];
-    $indiferente = $_GET['trabalha'];
-    
-    $query = "SELECT e.RA, e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id
-                WHERE f.trabalha = $nao OR f.trabalha = $sim OR f.trabalha LIKE '$indiferente' GROUP BY f.id  ORDER BY f.id DESC ";
-    $resultado = mysqli_query($conexao, $query);
-
-    
-    while ($aluno = mysqli_fetch_assoc($resultado)) {
-        $respostas[] = $aluno;
-    }
-    return $respostas;
-}
-
-function paginarTrabalha($conexao)
-{
-    $alunos = array();
-    $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-    if(!isset($_GET['trabalha']) || empty($_GET['trabalha'])) {
-        $_GET['trabalha'] = '1||trabalha=0';
-    }
-    
-    $nao = $_GET['trabalha'];
-    $sim = $_GET['trabalha'];
-    $indiferente = $_GET['trabalha'];
-    
-    $query = "SELECT e.RA, e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id
-                WHERE f.trabalha = $nao OR f.trabalha = $sim OR f.trabalha LIKE '$indiferente'  GROUP BY f.id";
-    $resultado = mysqli_query($conexao, $query);
-    $resultado_aluno = mysqli_query($conexao, $query);
-    $total_alunos = mysqli_num_rows($resultado_aluno);
-    $quantidade_pagina = 20;
-    $numero_pagina = ceil($total_alunos / $quantidade_pagina);
-    return $numero_pagina;
-}
-
-function listarResposta($conexao)
-{
-    $respostas = array();
-    $query = "SELECT e.RA, e.nome, a.nome AS area, f.* FROM formulario_aluno AS f INNER JOIN egressos AS e ON e.id  = f.egressos_id LEFT JOIN area_curso as a ON f.area_trabalho = a.area_curso_id
-                GROUP BY f.id ORDER BY f.id DESC";
-    $resultado = mysqli_query($conexao, $query);
-    while ($row = mysqli_fetch_assoc($resultado))
-    {
-        $respostas[] = $row;
-    }
-    return $respostas;
-}
-
 function gerarQRCODE($conexao)
 {
     $respostas = array();
@@ -154,8 +83,6 @@ function perfilDadosDoAluno($conexao, $id)
     }
     return listarDadosFrequenciaAtual($conexao, $id);
 }
-
-
 
 function listarTotalDias($conexao, $RA)
 {   

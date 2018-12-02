@@ -1,6 +1,7 @@
 <?php
 require_once("cabecalho.php");
-require_once("../model/funcoes.2.php");
+require_once("../model/conexao.php");
+require_once("../model/questionario-geral.php");
 error_reporting("E_NOTICE");
 ?>
 
@@ -170,13 +171,13 @@ error_reporting("E_NOTICE");
                             <th class="text-center">INFRA</th>
                             <th class="text-center">RECOMENDARIA</th>
                             <th class="text-center">ESTAGIO</th>
-                            <th class="text-center">SEMESTRE</th>
+                            <th class="text-center">AUSENCIA</th>
                             <th class="text-center">DATA</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $respostas = listarRespostas($conexao);
+                            $respostas = listarRespostasGeral($conexao);
                             $contar = count($respostas); ?>
                             <p class="text text-left">
                         <?php echo $contar ?> Registros </p>
@@ -233,7 +234,7 @@ error_reporting("E_NOTICE");
                                     <?= $simOuNao[$resposta['estagio']] ?>
                                 </td>
                                 <td class="process text-center">
-                                    <?= $resposta['semestre'] ?>
+                                    <?= $simOuNao[$resposta['ausencia']] ?>
                                 </td>
                                 <td class="process text-center">
                                     <?= $resposta['date'] ?>
