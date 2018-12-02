@@ -2,10 +2,10 @@
 //ini_set('display_errors', true);
 $conexao = mysqli_connect("localhost", "bruno", "", "evasao");
 $RA = $_GET['RA'];
-
 function listarQuantidadeDiaNoMes($conexao, $RA)
 {
-  $mes = $_GET['mes'];
+  $dataAtual = strftime('%m');
+  $mes = (!empty($_GET['mes'])) ? $_GET['mes'] : $dataAtual ;
   $query = "SELECT DISTINCT COUNT(DISTINCT DAY(data_entrada)) AS DIA FROM frequencia WHERE RA ='{$RA}' AND MONTH(data_entrada) = '{$mes}' GROUP BY MONTH(data_entrada)";
   $resultado = mysqli_query($conexao, $query);
   $row = mysqli_fetch_object($resultado);
@@ -361,7 +361,7 @@ $dia = listarQuantidadeDiaNoMes($conexao, $RA);
           datasets: [
             {
               label: "DIAS ",
-              data: [20, <?= $dia ?>],
+              data: [20 - '<?= $dia ?>', <?= $dia ?>],
               backgroundColor: [
                 '#00b5e9',
                 '#fa4251'
