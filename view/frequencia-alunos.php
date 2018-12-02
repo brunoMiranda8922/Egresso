@@ -4,11 +4,13 @@ require_once('../model/conexao.php');
 require_once('../model/selecionar-dados-aluno.php');
 require_once('../model/banco-curso.php');
 require_once('../model/funcoes.2.php');
+require_once('../model/mostrar-alerta.php');
 error_reporting("E_NOTICE");
 
 
 $id = $_GET['id'];
 $RA = $_GET['RA'];
+$email = $_GET['email'];
 ?>
 
 <script>
@@ -162,9 +164,16 @@ $mes = $frequencia[0]['mes'];
                         </button>
                             <input type="hidden" name="id" value="<?= $id ?>">
                             <input type="hidden" name="RA" value="<?= $RA ?>">
+                            <input type="hidden" name="email" value="<?= $email ?>">
                     </form>
                     </div>
-
+                    <form action="../controller/enviar-contato-frequencia.php?id=<?= $id?>&RA=<?= $RA?>&email=<?= $email?>" method="GET" autocomplete="off" class="">
+                        <div class="form-actions form-group">
+                        <a href="../controller/enviar-contato-frequencia.php?id=<?= $id?>&RA=<?= $RA?>&email=<?= $email?>" class="btn btn-danger" role="button" aria-label="Ver frequência do aluno"><strong aria-hidden="true">Enviar email de alerta</strong></a>
+                        </div>
+                    </form>
+                </div>
+                    <?php mostrarAlerta('success') ?>
                     <div class="table-responsive table-data">
                     <div class="table-responsive table--no-card m-b-30">
                     <table class="table table-borderless table-striped table-earning">
@@ -194,10 +203,8 @@ $mes = $frequencia[0]['mes'];
                         </tbody>
                     </table>
                 </div>
-                </div>
-            <button class="btn btn-primary">Voltar</button>
-        
-    </div>
+            </div>
+        </div>
     </div>
 </div>
 
