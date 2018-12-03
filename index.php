@@ -73,7 +73,7 @@ require_once("model/verifica-usuario.php");
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <p>GTI © 2018 FUNDÃO - FATEC BARUERI<a href="#"></a>.</p>
+                        <p>GTI © 2018 - FATEC BARUERI. INOVATECH<a href="#"></a>!</p>
                     </div>
                 </div>
             </div>

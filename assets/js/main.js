@@ -7,7 +7,7 @@
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -73,7 +73,7 @@
     //WidgetChart 2
     var ctx = document.getElementById("widgetChart2");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -144,7 +144,7 @@
     //WidgetChart 3
     var ctx = document.getElementById("widgetChart3");
     if (ctx) {
-      ctx.height = 130;
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -214,7 +214,45 @@
     //WidgetChart 4
     var ctx = document.getElementById("widgetChart4");
     if (ctx) {
-      ctx.height = 115;
+      ctx.height = 100;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [78, 81, 80, 65, 58, 75, 60, 75, 65, 60, 60, 75],
+              borderColor: "transparent",
+              borderWidth: "0",
+              backgroundColor: "rgba(255,255,255,.3)"
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              display: false,
+              categoryPercentage: 1,
+              barPercentage: 0.65
+            }],
+            yAxes: [{
+              display: false
+            }]
+          }
+        }
+      });
+    }
+
+    //
+
+    var ctx = document.getElementById("widgetChart5");
+    if (ctx) {
+      ctx.height = 100;
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
